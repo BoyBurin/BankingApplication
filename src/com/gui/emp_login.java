@@ -20,6 +20,7 @@ public class emp_login extends javax.swing.JFrame {
      */
     public emp_login() {
         initComponents();
+        // test
         
     }
 
