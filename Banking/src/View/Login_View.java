@@ -6,6 +6,8 @@
 package View;
 
 import java.awt.*;
+import java.awt.event.ActionListener;
+import javafx.scene.control.PasswordField;
 import javax.swing.*;
 
 /**
@@ -17,15 +19,12 @@ public class Login_View extends JFrame
 {
    
    //private JLabel usernameLabel;
-   // private JTextField usernameTextField;
+    private JTextField usernameField;
    // private JLabel passwordLabel;
-   // private JPasswordField passwordTextField;
-   // private JButton loginButton;
+    private JPasswordField passwordField;
+    private JButton loginButton;
+    private JButton createAccButton;
     
-    public static void main (String [] args){
-       
-       
-    } 
     
     public Login_View(){
         makeFrame();
@@ -35,6 +34,7 @@ public class Login_View extends JFrame
     private void makeFrame(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(100, 100, 454, 343);
+        setSize(new java.awt.Dimension(244, 349));
 	setTitle("Log in");
 	getContentPane().setLayout(null);
     }
@@ -44,7 +44,7 @@ public class Login_View extends JFrame
 	usernameLable.setBounds(40, 20, 80, 30);
 	getContentPane().add(usernameLable);
         
-        JTextField usernameField = new JTextField("");
+        usernameField = new JTextField("");
 	usernameField.setBounds(40, 50, 160, 30);
 	getContentPane().add(usernameField);
         
@@ -52,18 +52,36 @@ public class Login_View extends JFrame
 	passwordLable.setBounds(40, 90, 80, 30);
 	getContentPane().add(passwordLable);
         
-        JTextField passwordField = new JTextField("");
+        passwordField = new JPasswordField("");
 	passwordField.setBounds(40, 120, 160, 30);
 	getContentPane().add(passwordField);
         
-        JButton loginButton = new JButton("login");
+        loginButton = new JButton("login");
         loginButton.setBounds(80, 170, 70, 30);
 	getContentPane().add(loginButton);
         
         //add new create account button
-        JButton createAccButton = new JButton("Create Account");
-        createAccButton.setBounds(80, 200, 70, 30);
+        createAccButton = new JButton("Create Account");
+        createAccButton.setBounds(80, 200, 140, 30);
 	getContentPane().add(createAccButton);
+    }
+    
+    public String getUername(){
+        String userName = usernameField.getText();
+        return userName;
+    }
+    
+    public String getPassword(){
+        String password = passwordField.getText();
+        return password;
+    }
+    
+    public void setActionLoginButton(ActionListener action){
+        loginButton.addActionListener(action);
+    }
+    
+    public void setActionCreateAccButton(ActionListener action){
+        createAccButton.addActionListener(action);
     }
      
 }                 
