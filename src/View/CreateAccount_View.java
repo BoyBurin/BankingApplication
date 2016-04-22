@@ -20,6 +20,7 @@ public class CreateAccount_View extends JFrame {
     private JTextField roadField;
     private JTextField subDistrictField;
     private JTextField districtField;
+    private JTextField dateField;
     
     public static void main(String args[]){
         
@@ -95,8 +96,16 @@ public class CreateAccount_View extends JFrame {
 	subDistrictField.setBounds(40, 520, 160, 30);
 	getContentPane().add(subDistrictField);
         
+        JLabel dateLable = new JLabel("Date:");
+	dateLable.setBounds(40, 550, 80, 30);
+	getContentPane().add(dateLable);
+        
+        dateField = new JTextField("");
+	dateField.setBounds(40, 550, 160, 30);
+	getContentPane().add(dateField);
+        
         JButton createButton = new JButton("Create");
-        createButton.setBounds(80, 55, 70, 30);
+        createButton.setBounds(80, 580, 70, 30);
 	getContentPane().add(createButton);
     }
 }
