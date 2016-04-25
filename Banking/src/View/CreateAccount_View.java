@@ -6,6 +6,7 @@
 package View;
 
 import java.awt.*;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 /**
  *
@@ -13,7 +14,9 @@ import javax.swing.*;
  */
 public class CreateAccount_View extends JFrame {
     
-    private JTextField accountNameField;
+    private JTextField nameField;
+    private JTextField middleNameField;
+    private JTextField surnameField;
     private JTextField usernameField;
     private JTextField passwordField;
     private JTextField dateField;
@@ -26,6 +29,7 @@ public class CreateAccount_View extends JFrame {
     private JTextField districtField;
     private JTextField provinceField;
     private JButton createButton;
+    private JButton homeButton;
     
     
     public static void main(String args[]){
@@ -35,6 +39,7 @@ public class CreateAccount_View extends JFrame {
     public CreateAccount_View(){
         inComponent();
         makeFrame();
+        createButton();
     }
     private void makeFrame(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,13 +50,21 @@ public class CreateAccount_View extends JFrame {
     }
     
     private void inComponent(){
-        JLabel accountNameLable = new JLabel("Acc Name :");
-	accountNameLable.setBounds(40, 40, 80, 30);
-	getContentPane().add(accountNameLable);
+        JLabel nameLable = new JLabel("Name :");
+	nameLable.setBounds(40, 40, 80, 30);
+	getContentPane().add(nameLable);
         
-        accountNameField = new JTextField("");
-	accountNameField.setBounds(150, 40, 160, 30);
-	getContentPane().add(accountNameField);
+        nameField = new JTextField("");
+	nameField.setBounds(150, 40, 100, 30);
+	getContentPane().add(nameField);
+                
+        middleNameField = new JTextField("");
+	middleNameField.setBounds(250, 40, 100, 30);
+	getContentPane().add(middleNameField);
+        
+        surnameField = new JTextField("");
+	surnameField.setBounds(350, 40, 100, 30);
+	getContentPane().add(surnameField);
         
         JLabel usernameLable = new JLabel("Username :");
 	usernameLable.setBounds(40, 80, 80, 30);
@@ -141,16 +154,31 @@ public class CreateAccount_View extends JFrame {
 	provinceField.setBounds(150, 480, 160, 30);
 	getContentPane().add(provinceField);
     }         
-        
+    //Button    
     public void createButton(){
         createButton = new JButton("Create");
-        createButton.setBounds(350, 520, 100, 30);
+        createButton.setBounds(200, 550, 100, 30);
 	getContentPane().add(createButton);
+        
+        homeButton = new JButton("Home");
+        homeButton.setBounds(400, 550, 100, 30);
+	getContentPane().add(homeButton);
+    }
+    public void setActionCreateAccButton(ActionListener action){
+        createButton.addActionListener(action);
     }
     
-    public String getAccUername(){
-        String accName = accountNameField.getText();
-        return accName;
+    public String getName(){
+        String name = nameField.getText();
+        return name;
+    }
+    public String getMiddleName(){
+        String middleName = middleNameField.getText();
+        return middleName;
+    }
+    public String getSurname(){
+        String surname = surnameField.getText();
+        return surname;
     }
     public String getUername(){
         String userName = usernameField.getText();
@@ -188,7 +216,7 @@ public class CreateAccount_View extends JFrame {
         String subDistrict  = subDistrictField .getText();
         return subDistrict;
     }
-    public String getDistrictField (){
+    public String getDistrict(){
         String district  = districtField.getText();
         return district;
     }
