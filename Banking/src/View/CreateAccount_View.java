@@ -33,7 +33,7 @@ public class CreateAccount_View extends JFrame {
     }
     
     public CreateAccount_View(){
-        inComponent2();
+        inComponent();
         makeFrame();
     }
     private void makeFrame(){
@@ -44,8 +44,7 @@ public class CreateAccount_View extends JFrame {
 	getContentPane().setLayout(null);
     }
     
-    private void inComponent2(){
-        
+    private void inComponent(){
         JLabel accountNameLable = new JLabel("Acc Name :");
 	accountNameLable.setBounds(40, 40, 80, 30);
 	getContentPane().add(accountNameLable);
@@ -141,7 +140,9 @@ public class CreateAccount_View extends JFrame {
         provinceField = new JTextField("");
 	provinceField.setBounds(150, 480, 160, 30);
 	getContentPane().add(provinceField);
-                
+    }         
+        
+    public void createButton(){
         createButton = new JButton("Create");
         createButton.setBounds(350, 520, 100, 30);
 	getContentPane().add(createButton);
