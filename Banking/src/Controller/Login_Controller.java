@@ -4,9 +4,13 @@
  * and open the template in the editor.
  */
 package Controller;
+import Model.AccessSystem;
+import Model.DAOEmployeeAccount;
+import Model.MySQLDAOEmployeeAccount;
 import java.awt.event.ActionListener;
 
 import View.Login_View;
+import com.gui.displayApp;
 import java.awt.event.ActionEvent;
 
 /**
@@ -15,7 +19,7 @@ import java.awt.event.ActionEvent;
  */
 public class Login_Controller {
     Login_View loginView;
-
+    
     public Login_Controller() {
         loginView = new Login_View();
         loginView.setVisible(true);
@@ -29,7 +33,6 @@ public class Login_Controller {
             String username = loginView.getUername();
             String password = loginView.getPassword();
         }
-        
     }
     
     public static void main(String[] args){

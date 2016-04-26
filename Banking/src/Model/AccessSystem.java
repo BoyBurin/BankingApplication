@@ -49,7 +49,7 @@ public class AccessSystem {
         return success;
     }
     
-    public EmployeeAccount getLoginAccount(){
+    public static EmployeeAccount getLoginAccount(){
         return emp;
     }
 }
