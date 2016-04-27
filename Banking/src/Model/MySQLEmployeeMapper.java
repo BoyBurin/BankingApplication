@@ -13,15 +13,16 @@ import java.util.HashMap;
  */
 public class MySQLEmployeeMapper implements MySQLMapper<EmployeeAccount> {
 
-    public EmployeeAccount mapRow(HashMap objectMapper) {
-        int id = Integer.parseInt((String)(objectMapper.get("id")));
-        String name = (String)objectMapper.get("name");
-        String middle_name = (String)objectMapper.get("middle_name");
-        String surname = (String)objectMapper.get("surname");
-        String username = (String)objectMapper.get("username");
-        String password = (String)objectMapper.get("password");
+    public EmployeeAccount mapRow(HashMap info) {
+        int id = Integer.parseInt((String)(info.get("id")));
+        String name = (String)info.get("name");
+        String middle_name = (String)info.get("middle_name");
+        String surname = (String)info.get("surname");
+        String username = (String)info.get("username");
+        String password = (String)info.get("password");
+        String branch = (String)info.get("branch");
         Name emp_name = new Name(name, middle_name, surname);
-        EmployeeAccount myEmployee = new EmployeeAccount(username, password, emp_name, id);
+        EmployeeAccount myEmployee = new EmployeeAccount(username, password, emp_name, id, branch);
         return myEmployee;
     }
 

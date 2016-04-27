@@ -26,6 +26,6 @@ public interface DAOEmployeeAccount {
 
     public abstract EmployeeAccount getOneEmployee(String username);
 
-    public abstract void updateEmployeePassword(EmployeeAccount newPassword);
+    public abstract void updateEmployeePassword(EmployeeAccount updateBalance);
     
 }
