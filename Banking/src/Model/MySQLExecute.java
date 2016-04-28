@@ -24,13 +24,13 @@ public class MySQLExecute<E>{
         db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G3", "csc105_2014", "csc105");
     }
 
-    public List<E> executeQueryObject(String sql, MySQLMapper<E> objectMapper) {
+    public List<E> executeQueryObject(String sql, MySQLMapper<E> myMapper) {
        System.out.println(db.connect());
        ArrayList<HashMap> list = db.queryRows(sql);
        System.out.println(db.disconnect());
        ArrayList<E> objectList = new ArrayList<E>();
        for(HashMap myInfo : list){
-           E object = objectMapper.mapRow(myInfo);
+           E object = myMapper.mapRow(myInfo);
            objectList.add(object);
        }
        return objectList;
