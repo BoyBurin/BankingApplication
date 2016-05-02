@@ -22,7 +22,7 @@ public class Withdraw_Controller {
         withdrawView = new Withdraw_View();
         withdrawView.setVisible(true);
         withdrawView.setActionSubmitButton(new submitAction());
-        //withdrawView.setActionCancleButton(new CancleAction());
+        //withdrawView.setActionClearButton(new clearAction());
         withdrawView.setActionHomeButton(new HomeAction());
     }
     
@@ -42,7 +42,7 @@ public class Withdraw_Controller {
         @Override
         public void actionPerformed(ActionEvent event) {
             
-                Home_View home = new Home_View();
+                Home_Controller home = new Home_Controller();
                 withdrawView.dispose();
         }
     }

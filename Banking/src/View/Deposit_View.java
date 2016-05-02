@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,8 +21,9 @@ public class Deposit_View extends JFrame {
     private JTextField nameField;
     private JTextField surnameField;
     private JTextField amountField;
-    private JButton cancelButton;
+    private JButton clearButton;
     private JButton submitButton; 
+    private JButton homeButton;
     
     public static void main (String [] args){
         new Deposit_View().setVisible(true);
@@ -84,9 +86,13 @@ public class Deposit_View extends JFrame {
         submitButton.setBounds(200, 150, 100, 30);
 	getContentPane().add(submitButton);
         
-        cancelButton = new JButton("Cancel");
-        cancelButton.setBounds(400, 150, 100, 30);
-	getContentPane().add(cancelButton);
+        clearButton = new JButton("Clear");
+        clearButton.setBounds(400, 150, 100, 30);
+	getContentPane().add(clearButton);
+        
+        homeButton = new JButton("Home");
+        homeButton.setBounds(300, 190, 100, 30);
+	getContentPane().add(homeButton);
     }
     
     public String getAccountNo(){
@@ -106,4 +112,13 @@ public class Deposit_View extends JFrame {
         return amount;
     }
     
+    public void setActionSubmitButton(ActionListener action){
+        submitButton.addActionListener(action);
+    }
+    public void setActionCancleButton(ActionListener action){
+        clearButton.addActionListener(action);
+    }
+    public void setActionHomeButton(ActionListener action){
+        homeButton.addActionListener(action);
+    }
 }

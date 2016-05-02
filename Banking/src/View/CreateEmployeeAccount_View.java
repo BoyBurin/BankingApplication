@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,9 +17,7 @@ import javax.swing.JTextField;
  */
 public class CreateEmployeeAccount_View extends JFrame {
     
-    private JTextField employeeNoField;
-    private JTextField employeeNameField;
-    private JButton backButton;
+    private JButton homeButton;
     
     public static void main(String[]args){
         new CreateEmployeeAccount_View().setVisible(true);
@@ -27,7 +26,7 @@ public class CreateEmployeeAccount_View extends JFrame {
     public CreateEmployeeAccount_View(){
         makeFrame();
         inComponent();
-        backButton();
+        Button();
     }
     
     public void makeFrame(){
@@ -65,9 +64,13 @@ public class CreateEmployeeAccount_View extends JFrame {
           
     }
     
-    public void backButton(){
-        backButton = new JButton("Back");
-        backButton.setBounds(300, 350, 100, 30);
-	getContentPane().add(backButton);
+    public void Button(){
+        homeButton = new JButton("Home");
+        homeButton.setBounds(300, 350, 100, 30);
+	getContentPane().add(homeButton);
+    }
+    
+    public void setActionHomeButton(ActionListener action){
+        homeButton.addActionListener(action);
     }
 }

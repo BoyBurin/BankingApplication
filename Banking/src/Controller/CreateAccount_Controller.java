@@ -50,7 +50,7 @@ public class CreateAccount_Controller {
         @Override
         public void actionPerformed(ActionEvent event) {
             
-                Home_View home = new Home_View();
+                Home_Controller home = new Home_Controller();
                 createAccView.dispose();
         }
     }

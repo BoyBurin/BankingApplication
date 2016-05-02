@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,9 +20,10 @@ public class InterestRate_View extends JFrame {
     private JTextField amountField;
     private JTextField rateField;
     private JTextField timeField;
-    private JButton cancelButton;
+    private JButton clearButton;
     private JButton calculateButton; 
-    
+    private JButton homeButton;
+        
     public static void main (String [] args){
         new InterestRate_View().setVisible(true);
     }
@@ -84,9 +86,13 @@ public class InterestRate_View extends JFrame {
         calculateButton.setBounds(200, 150, 100, 30);
 	getContentPane().add(calculateButton);
         
-        cancelButton = new JButton("Cancel");
-        cancelButton.setBounds(400, 150, 100, 30);
-	getContentPane().add(cancelButton);
+        clearButton = new JButton("Clear");
+        clearButton.setBounds(400, 150, 100, 30);
+	getContentPane().add(clearButton);
+        
+        homeButton = new JButton("Home");
+        homeButton.setBounds(300, 200, 100, 30);
+	getContentPane().add(homeButton);
     }
     
     public String getAmount(){
@@ -101,5 +107,14 @@ public class InterestRate_View extends JFrame {
         String time = timeField.getText();
         return time;
     }
-   
+    
+    public void setActionCalculateButton(ActionListener action){
+        calculateButton.addActionListener(action);
+    }
+    public void setActionCancleButton(ActionListener action){
+        clearButton.addActionListener(action);
+    }
+    public void setActionHomeButton(ActionListener action){
+        homeButton.addActionListener(action);
+    }
 }

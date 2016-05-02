@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Controller;
+import View.Home_View;
 import java.awt.event.ActionListener;
 
 import View.Login_View;
@@ -28,14 +29,15 @@ public class Login_Controller {
         public void actionPerformed(ActionEvent event) {
             String username = loginView.getUername();
             String password = loginView.getPassword();
+            
+            if(username.equals("aaa") && password.equals("aaa")){
+                Home_View home = new Home_View();
+                loginView.dispose();
+            }
         }
-        
     }
     
     public static void main(String[] args){
         new Login_Controller();
     }
-    
-    
-    
 }

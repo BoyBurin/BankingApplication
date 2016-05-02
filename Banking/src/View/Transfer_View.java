@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,8 +24,9 @@ public class Transfer_View extends JFrame {
     private JTextField toNameField;
     private JTextField toSurnameField;
     private JTextField amountField;
-    private JButton cancelButton;
+    private JButton clearButton;
     private JButton submitButton; 
+    private JButton homeButton;
     
     public static void main (String [] args){
         new Transfer_View().setVisible(true);
@@ -123,9 +125,13 @@ public class Transfer_View extends JFrame {
         submitButton.setBounds(200, 280, 100, 30);
 	getContentPane().add(submitButton);
         
-        cancelButton = new JButton("Cancel");
-        cancelButton.setBounds(400, 280, 100, 30);
-	getContentPane().add(cancelButton);
+        clearButton = new JButton("Clear");
+        clearButton.setBounds(400, 280, 100, 30);
+	getContentPane().add(clearButton);
+        
+        homeButton = new JButton("Home");
+        homeButton.setBounds(300, 320, 100, 30);
+	getContentPane().add(homeButton);
     }
     
     public String getAccountNo(){
@@ -157,4 +163,13 @@ public class Transfer_View extends JFrame {
         return toSurname;
     }
     
+    public void setActionSubmitButton(ActionListener action){
+        submitButton.addActionListener(action);
+    }
+    public void setActionCancleButton(ActionListener action){
+        clearButton.addActionListener(action);
+    }
+    public void setActionHomeButton(ActionListener action){
+        homeButton.addActionListener(action);
+    }
 }

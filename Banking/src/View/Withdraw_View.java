@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,8 +22,9 @@ public class Withdraw_View extends JFrame {
     private JTextField surnameField;
     private JTextField idNoField;
     private JTextField amountField;
-    private JButton cancelButton;
+    private JButton clearButton;
     private JButton submitButton; 
+    private JButton homeButton;
     
     public static void main (String [] args){
         new Withdraw_View().setVisible(true);
@@ -93,9 +95,13 @@ public class Withdraw_View extends JFrame {
         submitButton.setBounds(200, 190, 100, 30);
 	getContentPane().add(submitButton);
         
-        cancelButton = new JButton("Cancel");
-        cancelButton.setBounds(400, 190, 100, 30);
-	getContentPane().add(cancelButton);
+        clearButton = new JButton("clear");
+        clearButton.setBounds(400, 190, 100, 30);
+	getContentPane().add(clearButton);
+        
+        homeButton = new JButton("Home");
+        homeButton.setBounds(300, 230, 100, 30);
+	getContentPane().add(homeButton);
     }
     
     public String getAccountNo(){
@@ -117,5 +123,15 @@ public class Withdraw_View extends JFrame {
     public String getAmount(){
         String amount = amountField.getText();
         return amount;
+    }
+    
+    public void setActionSubmitButton(ActionListener action){
+        submitButton.addActionListener(action);
+    }
+    public void setActionClearButton(ActionListener action){
+        clearButton.addActionListener(action);
+    }
+    public void setActionHomeButton(ActionListener action){
+        homeButton.addActionListener(action);
     }
 }

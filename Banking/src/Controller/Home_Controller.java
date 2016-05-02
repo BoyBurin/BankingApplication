@@ -44,7 +44,7 @@ public class Home_Controller {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            Deposit_View deposit = new Deposit_View();
+            Deposit_Controller deposit = new Deposit_Controller();
             
         }
     }
@@ -53,7 +53,7 @@ public class Home_Controller {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            Withdraw_View withdraw = new Withdraw_View();
+            Withdraw_Controller withdraw = new Withdraw_Controller();
             
         }
     }
@@ -62,7 +62,7 @@ public class Home_Controller {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            Transfer_View transfer = new Transfer_View();
+            Transfer_Controller transfer = new Transfer_Controller();
             
         }
     }
@@ -71,7 +71,7 @@ public class Home_Controller {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            StagementPrint_View stagementPrint = new StagementPrint_View();
+            StagementPrint_Controller stagementPrint = new StagementPrint_Controller();
             
         }
     }
@@ -80,7 +80,7 @@ public class Home_Controller {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            InterestRate_View interest = new InterestRate_View();
+            InterestRate_Controller interest = new InterestRate_Controller();
             
         }
     }
@@ -89,7 +89,7 @@ public class Home_Controller {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            Home_View home = new Home_View();
+            Home_Controller home = new Home_Controller();
             
         }
     }

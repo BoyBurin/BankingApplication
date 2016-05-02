@@ -17,10 +17,7 @@ import javax.swing.*;
 
 public class Login_View extends JFrame
 {
-   
-   //private JLabel usernameLabel;
     private JTextField usernameField;
-   // private JLabel passwordLabel;
     private JPasswordField passwordField;
     private JButton loginButton;
     private JButton createAccButton;
@@ -29,6 +26,7 @@ public class Login_View extends JFrame
     public Login_View(){
         makeFrame();
         inComponent();
+        
     }
     
     private void makeFrame(){
@@ -55,15 +53,17 @@ public class Login_View extends JFrame
         passwordField = new JPasswordField("");
 	passwordField.setBounds(40, 120, 160, 30);
 	getContentPane().add(passwordField);
-        
+        button();
+    }
+    
+    public void button(){
         loginButton = new JButton("login");
         loginButton.setBounds(80, 170, 70, 30);
 	getContentPane().add(loginButton);
         
-        //add new create account button
-        createAccButton = new JButton("Create Account");
+        /*createAccButton = new JButton("Create Account");
         createAccButton.setBounds(80, 200, 140, 30);
-	getContentPane().add(createAccButton);
+	getContentPane().add(createAccButton);*/
     }
     
     public String getUername(){

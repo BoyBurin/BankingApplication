@@ -5,8 +5,8 @@
  */
 package Controller;
 
-import View.Deposit_View;
 import View.Home_View;
+import View.InterestRate_View;
 import View.Login_View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,37 +15,38 @@ import java.awt.event.ActionListener;
  *
  * @author Kango_000
  */
-public class Deposit_Controller {
-    Deposit_View depositView;
+public class InterestRate_Controller {
+    InterestRate_View interestView;
     
-    public Deposit_Controller(){
-        depositView = new Deposit_View();
-        depositView.setVisible(true);
-        depositView.setActionSubmitButton(new submitAction());
-        depositView.setActionHomeButton(new Deposit_Controller.HomeAction());
+    public InterestRate_Controller(){
+        interestView = new InterestRate_View();
+        interestView.setVisible(true);
+        interestView.setActionCalculateButton(new InterestRate_Controller.CalculateAction());
+        interestView.setActionHomeButton(new InterestRate_Controller.HomeAction());
     }
-    private class submitAction implements ActionListener{
+    
+    private class CalculateAction implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            String accountNo = depositView.getAccountNo();
-            String name = depositView.getName();
-            String surname = depositView.getSurname();
-            String amount = depositView.getAmount();
+            String amount = interestView.getAmount();
+            String rate = interestView.getRate();
+            String time = interestView.getTime();
         }
     }
+    //Home Button
     private class HomeAction implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent event) {
             
                 Home_Controller home = new Home_Controller();
-                depositView.dispose();
+                interestView.dispose();
         }
     }
     
     public static void main(String[] args){
-        new Deposit_Controller();
+        new InterestRate_Controller();
     }
     
 }
