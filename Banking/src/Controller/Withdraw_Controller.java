@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import View.Home_View;
 import View.Login_View;
 import View.Withdraw_View;
 import java.awt.event.ActionEvent;
@@ -22,7 +23,7 @@ public class Withdraw_Controller {
         withdrawView.setVisible(true);
         withdrawView.setActionSubmitButton(new submitAction());
         //withdrawView.setActionCancleButton(new CancleAction());
-        //withdrawView.setActionHomeButton(new HomeAction());
+        withdrawView.setActionHomeButton(new HomeAction());
     }
     
     private class submitAction implements ActionListener{
@@ -36,7 +37,15 @@ public class Withdraw_Controller {
             String amount = withdrawView.getAmount();
         }
     }
-    
+    private class HomeAction implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            
+                Home_View home = new Home_View();
+                withdrawView.dispose();
+        }
+    }
     public static void main(String[] args){
         new Withdraw_Controller();
     }

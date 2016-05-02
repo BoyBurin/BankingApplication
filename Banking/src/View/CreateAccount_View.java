@@ -225,4 +225,10 @@ public class CreateAccount_View extends JFrame {
         return  province;
     }
     
+    public void setActionCreateButton(ActionListener action){
+        createButton.addActionListener(action);
+    }
+    public void setActionHomeButton(ActionListener action){
+        homeButton.addActionListener(action);
+    }
 }

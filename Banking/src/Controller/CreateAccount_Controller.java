@@ -5,6 +5,7 @@
  */
 package Controller;
 import View.CreateAccount_View;
+import View.Home_View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
@@ -21,7 +22,7 @@ public class CreateAccount_Controller {
     public CreateAccount_Controller(){
         createAccView = new CreateAccount_View();
         createAccView.setVisible(true);
-        //cteateAccView.setActionLoginButton(new CreateAccount_Controller.createAccAction());
+        createAccView.setActionHomeButton(new CreateAccount_Controller.HomeAction());
     }
     
     private class createAccAction implements ActionListener{
@@ -42,6 +43,15 @@ public class CreateAccount_Controller {
             String subDistrict = createAccView.getSubDistrict();
             String district = createAccView.getDistrict();
             String province = createAccView.getProvince();
+        }
+    }
+    private class HomeAction implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            
+                Home_View home = new Home_View();
+                createAccView.dispose();
         }
     }
     

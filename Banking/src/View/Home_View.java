@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -22,7 +23,7 @@ public class Home_View extends JFrame {
     private JButton logoutButton;
     
     public static void main (String [] args){
-        new Home_View().setVisible(true);
+        new Home_View();
     }
     
     public Home_View(){
@@ -36,6 +37,7 @@ public class Home_View extends JFrame {
         setSize(new java.awt.Dimension(700, 700));
 	setTitle("Bank Application");
 	getContentPane().setLayout(null);
+        setVisible(true);
     }
     
     private void button(){
@@ -62,5 +64,24 @@ public class Home_View extends JFrame {
         logoutButton = new JButton("Log-out");
         logoutButton.setBounds(350, 400, 350, 200);
 	getContentPane().add(logoutButton);
+    }
+    
+    public void setActionDepositButton(ActionListener action){
+        depositButton.addActionListener(action);
+    }
+    public void setActionWithdrawButton(ActionListener action){
+        withdrawButton.addActionListener(action);
+    }
+    public void setActionTransferButton(ActionListener action){
+        transferButton.addActionListener(action);
+    }
+    public void setActionInterestButton(ActionListener action){
+        interestButton.addActionListener(action);
+    }
+    public void setActionStagementPrintOutButton(ActionListener action){
+        stagementPrintOutButton.addActionListener(action);
+    }
+    public void setActionLogOutButton(ActionListener action){
+        logoutButton.addActionListener(action);
     }
 }
