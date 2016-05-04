@@ -6,7 +6,6 @@
 package Controller;
 
 import View.Home_View;
-import View.Login_View;
 import View.Withdraw_View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,11 +20,21 @@ public class Withdraw_Controller {
     public Withdraw_Controller() {
         withdrawView = new Withdraw_View();
         withdrawView.setVisible(true);
-        withdrawView.setActionSubmitButton(new submitAction());
-        //withdrawView.setActionClearButton(new clearAction());
-        withdrawView.setActionHomeButton(new HomeAction());
+        withdrawView.setActionSearchButton(new Withdraw_Controller.SearchAction());
+        withdrawView.setActionSubmitButton(new Withdraw_Controller.submitAction());
+        withdrawView.setActionClearButton(new Withdraw_Controller.clearAction());
+        withdrawView.setActionHomeButton(new Withdraw_Controller.HomeAction());
     }
     
+    //Search
+    private class SearchAction implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            
+        }
+    }
+    
+    //Submit
     private class submitAction implements ActionListener{
 
         @Override
@@ -33,10 +42,19 @@ public class Withdraw_Controller {
             String accountNo = withdrawView.getAccountNo();
             String name = withdrawView.getName();
             String surname = withdrawView.getSurname();
-            String idNo = withdrawView.getidNo();
             String amount = withdrawView.getAmount();
         }
     }
+    
+    //Clear
+    private class clearAction implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            
+        }
+    }
+    
+    //Home
     private class HomeAction implements ActionListener{
 
         @Override
@@ -46,6 +64,7 @@ public class Withdraw_Controller {
                 withdrawView.dispose();
         }
     }
+    
     public static void main(String[] args){
         new Withdraw_Controller();
     }

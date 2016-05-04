@@ -20,8 +20,8 @@ public class Withdraw_View extends JFrame {
     private JTextField accountNoField;
     private JTextField nameField;
     private JTextField surnameField;
-    private JTextField idNoField;
     private JTextField amountField;
+    private JButton searchButton;
     private JButton clearButton;
     private JButton submitButton; 
     private JButton homeButton;
@@ -68,39 +68,35 @@ public class Withdraw_View extends JFrame {
         surnameField = new JTextField("");
 	surnameField.setBounds(450, 60, 160, 30);
 	getContentPane().add(surnameField);
-        
-        JLabel idNoLable = new JLabel("Identity No. :");
-	idNoLable.setBounds(40, 100, 80, 30);
-	getContentPane().add(idNoLable);
-        
-        idNoField = new JTextField("");
-	idNoField.setBounds(150, 100, 160, 30);
-	getContentPane().add(idNoField);
-        
+                        
         JLabel amountLable = new JLabel("Amount :");
-	amountLable.setBounds(40, 140, 80, 30);
+	amountLable.setBounds(40, 100, 80, 30);
 	getContentPane().add(amountLable);
         
         amountField = new JTextField("");
-	amountField.setBounds(150, 140, 160, 30);
+	amountField.setBounds(150, 100, 160, 30);
 	getContentPane().add(amountField);
         
         JLabel bathLable = new JLabel("Bath");
-	bathLable.setBounds(350, 140, 80, 30);
+	bathLable.setBounds(350, 100, 80, 30);
 	getContentPane().add(bathLable);
     }
     
     private void button(){
+        searchButton = new JButton("Search");
+        searchButton.setBounds(350, 20, 100, 30);
+	getContentPane().add(searchButton);
+        
         submitButton = new JButton("Submit");
-        submitButton.setBounds(200, 190, 100, 30);
+        submitButton.setBounds(200, 160, 100, 30);
 	getContentPane().add(submitButton);
         
         clearButton = new JButton("clear");
-        clearButton.setBounds(400, 190, 100, 30);
+        clearButton.setBounds(400, 160, 100, 30);
 	getContentPane().add(clearButton);
         
         homeButton = new JButton("Home");
-        homeButton.setBounds(300, 230, 100, 30);
+        homeButton.setBounds(300, 200, 100, 30);
 	getContentPane().add(homeButton);
     }
     
@@ -116,15 +112,14 @@ public class Withdraw_View extends JFrame {
         String surname = surnameField.getText();
         return surname;
     }
-    public String getidNo(){
-        String idNo = idNoField.getText();
-        return idNo;
-    }
     public String getAmount(){
         String amount = amountField.getText();
         return amount;
     }
     
+    public void setActionSearchButton(ActionListener action){
+        searchButton.addActionListener(action);
+    }
     public void setActionSubmitButton(ActionListener action){
         submitButton.addActionListener(action);
     }

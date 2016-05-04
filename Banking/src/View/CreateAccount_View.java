@@ -22,12 +22,10 @@ public class CreateAccount_View extends JFrame {
     private JTextField dateField;
     private JTextField emailField;
     private JTextField phoneField;
-    private JTextField houseNoField;
-    private JTextField soiField;
-    private JTextField roadField;
-    private JTextField subDistrictField;
-    private JTextField districtField;
+    private JTextField addressLine1Field;
+    private JTextField addressLine2Field;
     private JTextField provinceField;
+    private JTextField zipCodeField;
     private JButton createButton;
     private JButton homeButton;
     
@@ -106,62 +104,47 @@ public class CreateAccount_View extends JFrame {
 	phoneField.setBounds(150, 240, 160, 30);
 	getContentPane().add(phoneField);
         
-        JLabel houseNoLable = new JLabel("House No. :");
-	houseNoLable.setBounds(40, 280, 80, 30);
-	getContentPane().add(houseNoLable);
+        JLabel addressLine1Lable = new JLabel("addressLine1 :");
+	addressLine1Lable.setBounds(40, 280, 100, 30);
+	getContentPane().add(addressLine1Lable);
         
-        houseNoField = new JTextField("");
-	houseNoField.setBounds(150, 280, 160, 30);
-	getContentPane().add(houseNoField);
+        addressLine1Field = new JTextField("");
+	addressLine1Field.setBounds(150, 280, 300, 30);
+	getContentPane().add(addressLine1Field);
         
-        JLabel soiLable = new JLabel("Soi. :");
-	soiLable.setBounds(40, 320, 80, 30);
-	getContentPane().add(soiLable);
+        JLabel addressLine2Lable = new JLabel("addressLine2 :");
+	addressLine2Lable.setBounds(40, 320, 100, 30);
+	getContentPane().add(addressLine2Lable);
         
-        soiField = new JTextField("");
-	soiField.setBounds(150, 320, 160, 30);
-	getContentPane().add(soiField);
+        addressLine2Field = new JTextField("");
+	addressLine2Field.setBounds(150, 320, 300, 30);
+	getContentPane().add(addressLine2Field);
         
-        JLabel roadLable = new JLabel("Road :");
-	roadLable.setBounds(40, 360, 80, 30);
-	getContentPane().add(roadLable);
-        
-        roadField = new JTextField("");
-	roadField.setBounds(150, 360, 160, 30);
-	getContentPane().add(roadField);
-        
-        JLabel subDistrictLable = new JLabel("Sub-district :");
-	subDistrictLable.setBounds(40, 400, 80, 30);
-	getContentPane().add(subDistrictLable);
-        
-        subDistrictField = new JTextField("");
-	subDistrictField.setBounds(150, 400, 160, 30);
-	getContentPane().add(subDistrictField);
-        
-        JLabel districtLable = new JLabel("District :");
-	districtLable.setBounds(40, 440, 80, 30);
-	getContentPane().add(districtLable);
-        
-        districtField = new JTextField("");
-	districtField.setBounds(150, 440, 160, 30);
-	getContentPane().add(districtField);
-        
-        JLabel provinceLable = new JLabel("Province :");
-	provinceLable.setBounds(40, 480, 80, 30);
+        JLabel provinceLable = new JLabel("province :");
+	provinceLable.setBounds(40, 360, 80, 30);
 	getContentPane().add(provinceLable);
         
         provinceField = new JTextField("");
-	provinceField.setBounds(150, 480, 160, 30);
+	provinceField.setBounds(150, 360, 160, 30);
 	getContentPane().add(provinceField);
-    }         
+        
+        JLabel zipCodeLable = new JLabel("ZIP Code :");
+	zipCodeLable.setBounds(40, 400, 80, 30);
+	getContentPane().add(zipCodeLable);
+        
+        zipCodeField = new JTextField("");
+	zipCodeField.setBounds(150, 400, 160, 30);
+	getContentPane().add(zipCodeField);
+    }       
+    
     //Button    
     public void createButton(){
         createButton = new JButton("Create");
-        createButton.setBounds(200, 550, 100, 30);
+        createButton.setBounds(200, 460, 100, 30);
 	getContentPane().add(createButton);
         
         homeButton = new JButton("Home");
-        homeButton.setBounds(400, 550, 100, 30);
+        homeButton.setBounds(400, 460, 100, 30);
 	getContentPane().add(homeButton);
     }
     public void setActionCreateAccButton(ActionListener action){
@@ -200,29 +183,21 @@ public class CreateAccount_View extends JFrame {
         String phone = phoneField.getText();
         return phone;
     }
-    public String getHouseNo(){
-        String houseNo = houseNoField.getText();
-        return houseNo;
+    public String getAddressLine1(){
+        String addressLine1 = addressLine1Field.getText();
+        return addressLine1;
     }
-    public String getSoi(){
-        String soi = soiField.getText();
-        return soi;
-    }
-    public String getRoad(){
-        String road = roadField.getText();
-        return road;
-    }
-    public String getSubDistrict(){
-        String subDistrict  = subDistrictField .getText();
-        return subDistrict;
-    }
-    public String getDistrict(){
-        String district  = districtField.getText();
-        return district;
+    public String getAddressLine2(){
+        String addressLine2 = addressLine2Field.getText();
+        return addressLine2;
     }
     public String getProvince(){
         String  province =  provinceField.getText();
         return  province;
+    }
+    public String getZipCode(){
+        String  zipCode =  zipCodeField.getText();
+        return  zipCode;
     }
     
     public void setActionCreateButton(ActionListener action){

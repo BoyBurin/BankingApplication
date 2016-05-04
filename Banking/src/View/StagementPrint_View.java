@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPasswordField;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -19,10 +19,12 @@ import javax.swing.JTextField;
 public class StagementPrint_View extends JFrame {
     
     private JButton printButton;
+    private JTable table;
     
     public StagementPrint_View(){
         makeFrame();
         inComponent();
+        button();
         
     }
     
@@ -39,7 +41,13 @@ public class StagementPrint_View extends JFrame {
     }
     
     private void inComponent(){
-        
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "DATE", "CODE", "AMOUNT", "BALANCE", "STAFF ID"
+            } ));
     }
     
     public void button(){
@@ -49,16 +57,7 @@ public class StagementPrint_View extends JFrame {
         
     }
     
-    /*public String getUername(){
-        String userName = usernameField.getText();
-        return userName;
-    }
-    
-    public String getPassword(){
-        String password = passwordField.getText();
-        return password;
-    }*/
-    
+        
     public void setActionPrintButton(ActionListener action){
         printButton.addActionListener(action);
     }

@@ -22,6 +22,7 @@ public class CreateAccount_Controller {
     public CreateAccount_Controller(){
         createAccView = new CreateAccount_View();
         createAccView.setVisible(true);
+        createAccView.setActionCreateButton(new CreateAccount_Controller.CreateAction());
         createAccView.setActionHomeButton(new CreateAccount_Controller.HomeAction());
     }
     
@@ -37,14 +38,22 @@ public class CreateAccount_Controller {
             String date = createAccView.getDate();
             String email = createAccView.getEmail();
             String phone = createAccView.getPhone();
-            String houseNo = createAccView.getHouseNo();
-            String soi = createAccView.getSoi();
-            String road = createAccView.getRoad();
-            String subDistrict = createAccView.getSubDistrict();
-            String district = createAccView.getDistrict();
+            String addressLine1 = createAccView.getAddressLine1();
+            String addressLine2 = createAccView.getAddressLine2();
             String province = createAccView.getProvince();
+            String zipCode = createAccView.getZipCode();
         }
     }
+    
+    //Create
+    private class CreateAction implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            
+        }
+    }
+    
+    //Home
     private class HomeAction implements ActionListener{
 
         @Override

@@ -21,7 +21,7 @@ public class CreateEmployeeAccount_Controller {
     public CreateEmployeeAccount_Controller() {
         createEmployeeAccountView = new CreateEmployeeAccount_View();
         createEmployeeAccountView.setVisible(true);
-        createEmployeeAccountView.setActionHomeButton(new HomeAction());
+        createEmployeeAccountView.setActionHomeButton(new CreateEmployeeAccount_Controller.HomeAction());
     }
     
     private class HomeAction implements ActionListener{

@@ -7,7 +7,6 @@ package Controller;
 
 import View.Deposit_View;
 import View.Home_View;
-import View.Login_View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,9 +20,20 @@ public class Deposit_Controller {
     public Deposit_Controller(){
         depositView = new Deposit_View();
         depositView.setVisible(true);
-        depositView.setActionSubmitButton(new submitAction());
+        depositView.setActionSearchButton(new Deposit_Controller.SearchAction());
+        depositView.setActionSubmitButton(new Deposit_Controller.submitAction());
+        depositView.setActionClearButton(new Deposit_Controller.clearAction());
         depositView.setActionHomeButton(new Deposit_Controller.HomeAction());
     }
+    
+    //Search
+    private class SearchAction implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            
+        }
+    }
+    //Submit
     private class submitAction implements ActionListener{
 
         @Override
@@ -34,6 +44,16 @@ public class Deposit_Controller {
             String amount = depositView.getAmount();
         }
     }
+    
+    //Clear
+    private class clearAction implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            
+        }
+    }
+    
+    //Home
     private class HomeAction implements ActionListener{
 
         @Override

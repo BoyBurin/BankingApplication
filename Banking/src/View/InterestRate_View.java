@@ -17,11 +17,10 @@ import javax.swing.JTextField;
  */
 public class InterestRate_View extends JFrame {
     
-    private JTextField amountField;
-    private JTextField rateField;
-    private JTextField timeField;
+    private JTextField accountNoField;
+    private JButton searchButton;
     private JButton clearButton;
-    private JButton calculateButton; 
+    private JButton showButton; 
     private JButton homeButton;
         
     public static void main (String [] args){
@@ -38,81 +37,70 @@ public class InterestRate_View extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(100, 100, 454, 343);
         setSize(new java.awt.Dimension(700, 700));
-	setTitle("Interest Rate Calculator");
+	setTitle("Show Interest Rate ");
 	getContentPane().setLayout(null);
     }
     
     private void inComponent(){
-        JLabel accountNoLable = new JLabel("Amount");
+        JLabel accountNoLable = new JLabel("Account No. :");
 	accountNoLable.setBounds(40, 20, 100, 30);
 	getContentPane().add(accountNoLable);
         
-        amountField = new JTextField("");
-	amountField.setBounds(150, 20, 160, 30);
-	getContentPane().add(amountField);
+        accountNoField = new JTextField("");
+	accountNoField.setBounds(150, 20, 160, 30);
+	getContentPane().add(accountNoField);
         
+        JLabel lastBalanceLable = new JLabel("LastBalance :");
+	lastBalanceLable.setBounds(40, 60, 100, 30);
+	getContentPane().add(lastBalanceLable);
+                
         JLabel bathLable = new JLabel("Bath");
-	bathLable.setBounds(350, 20, 80, 30);
+	bathLable.setBounds(350, 60, 80, 30);
 	getContentPane().add(bathLable);
         
-        JLabel rateLable = new JLabel("Rate :");
-	rateLable.setBounds(40, 60, 80, 30);
+        JLabel rateLable = new JLabel("Interest :");
+	rateLable.setBounds(40, 100, 80, 30);
 	getContentPane().add(rateLable);
         
-        rateField = new JTextField("");
-	rateField.setBounds(150, 60, 160, 30);
-	getContentPane().add(rateField);
-        
         JLabel persentLable = new JLabel("% Per year");
-	persentLable.setBounds(350, 60, 80, 30);
+	persentLable.setBounds(350, 100, 80, 30);
 	getContentPane().add(persentLable);
         
-        JLabel timeLable = new JLabel("Time :");
-	timeLable.setBounds(40, 100, 80, 30);
-	getContentPane().add(timeLable);
-        
-        timeField = new JTextField("");
-	timeField.setBounds(150, 100, 160, 30);
-	getContentPane().add(timeField);
-        
-        JLabel yearLable = new JLabel("Year");
-	yearLable.setBounds(350, 100, 80, 30);
+        JLabel presentBalanceLable = new JLabel("PresentBalance :");
+	presentBalanceLable.setBounds(40, 140, 80, 30);
+	getContentPane().add(presentBalanceLable);
+                
+        JLabel yearLable = new JLabel("Bath");
+	yearLable.setBounds(350, 140, 80, 30);
 	getContentPane().add(yearLable);
         
     }
     
     private void button(){
-        calculateButton = new JButton("Calculate");
-        calculateButton.setBounds(200, 150, 100, 30);
-	getContentPane().add(calculateButton);
+        searchButton = new JButton("Search");
+        searchButton.setBounds(350, 20, 100, 30);
+	getContentPane().add(searchButton);
         
-        clearButton = new JButton("Clear");
-        clearButton.setBounds(400, 150, 100, 30);
-	getContentPane().add(clearButton);
+        showButton = new JButton("Show");
+        showButton.setBounds(200, 200, 100, 30);
+	getContentPane().add(showButton);
         
         homeButton = new JButton("Home");
-        homeButton.setBounds(300, 200, 100, 30);
+        homeButton.setBounds(400, 200, 100, 30);
 	getContentPane().add(homeButton);
+        
     }
     
-    public String getAmount(){
-        String amount = amountField.getText();
-        return amount;
-    }
-    public String getRate(){
-        String rate = rateField.getText();
-        return rate;
-    }
-    public String getTime(){
-        String time = timeField.getText();
-        return time;
+    public String getAccountNo(){
+        String accountNo = accountNoField.getText();
+        return accountNo;
     }
     
-    public void setActionCalculateButton(ActionListener action){
-        calculateButton.addActionListener(action);
+    public void setActionSearchButton(ActionListener action){
+        searchButton.addActionListener(action);
     }
-    public void setActionCancleButton(ActionListener action){
-        clearButton.addActionListener(action);
+    public void setActionShowButton(ActionListener action){
+        showButton.addActionListener(action);
     }
     public void setActionHomeButton(ActionListener action){
         homeButton.addActionListener(action);

@@ -7,7 +7,6 @@ package Controller;
 
 import View.Home_View;
 import View.InterestRate_View;
-import View.Login_View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,20 +20,30 @@ public class InterestRate_Controller {
     public InterestRate_Controller(){
         interestView = new InterestRate_View();
         interestView.setVisible(true);
-        interestView.setActionCalculateButton(new InterestRate_Controller.CalculateAction());
+        interestView.setActionShowButton(new InterestRate_Controller.SearchAction());
+        interestView.setActionShowButton(new InterestRate_Controller.ShowAction());
         interestView.setActionHomeButton(new InterestRate_Controller.HomeAction());
     }
     
-    private class CalculateAction implements ActionListener{
+    //Search
+    private class SearchAction implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            
+        }
+    }
+    
+    //Show
+    private class ShowAction implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            String amount = interestView.getAmount();
-            String rate = interestView.getRate();
-            String time = interestView.getTime();
+            String accountNo = interestView.getAccountNo();
+            
         }
     }
-    //Home Button
+        
+    //Home
     private class HomeAction implements ActionListener{
 
         @Override

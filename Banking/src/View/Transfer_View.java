@@ -24,6 +24,7 @@ public class Transfer_View extends JFrame {
     private JTextField toNameField;
     private JTextField toSurnameField;
     private JTextField amountField;
+    private JButton searchButton;
     private JButton clearButton;
     private JButton submitButton; 
     private JButton homeButton;
@@ -121,6 +122,10 @@ public class Transfer_View extends JFrame {
     }
     
     private void button(){
+        searchButton = new JButton("Search");
+        searchButton.setBounds(350, 20, 100, 30);
+	getContentPane().add(searchButton);
+        
         submitButton = new JButton("Submit");
         submitButton.setBounds(200, 280, 100, 30);
 	getContentPane().add(submitButton);
@@ -163,10 +168,13 @@ public class Transfer_View extends JFrame {
         return toSurname;
     }
     
+    public void setActionSearchButton(ActionListener action){
+        searchButton.addActionListener(action);
+    }
     public void setActionSubmitButton(ActionListener action){
         submitButton.addActionListener(action);
     }
-    public void setActionCancleButton(ActionListener action){
+    public void setActionClearButton(ActionListener action){
         clearButton.addActionListener(action);
     }
     public void setActionHomeButton(ActionListener action){

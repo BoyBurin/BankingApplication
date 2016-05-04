@@ -21,6 +21,7 @@ public class Deposit_View extends JFrame {
     private JTextField nameField;
     private JTextField surnameField;
     private JTextField amountField;
+    private JButton searchButton;
     private JButton clearButton;
     private JButton submitButton; 
     private JButton homeButton;
@@ -82,6 +83,10 @@ public class Deposit_View extends JFrame {
     }
     
     private void button(){
+        searchButton = new JButton("Search");
+        searchButton.setBounds(350, 20, 100, 30);
+	getContentPane().add(searchButton);
+        
         submitButton = new JButton("Submit");
         submitButton.setBounds(200, 150, 100, 30);
 	getContentPane().add(submitButton);
@@ -112,10 +117,13 @@ public class Deposit_View extends JFrame {
         return amount;
     }
     
+    public void setActionSearchButton(ActionListener action){
+        searchButton.addActionListener(action);
+    }
     public void setActionSubmitButton(ActionListener action){
         submitButton.addActionListener(action);
     }
-    public void setActionCancleButton(ActionListener action){
+    public void setActionClearButton(ActionListener action){
         clearButton.addActionListener(action);
     }
     public void setActionHomeButton(ActionListener action){

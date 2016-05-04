@@ -20,7 +20,7 @@ public class Login_Controller {
     public Login_Controller() {
         loginView = new Login_View();
         loginView.setVisible(true);
-        loginView.setActionLoginButton(new LoginAction());
+        loginView.setActionLoginButton(new Login_Controller.LoginAction());
     }
     
     private class LoginAction implements ActionListener{

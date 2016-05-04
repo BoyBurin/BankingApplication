@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import View.Deposit_View;
+
 import View.Home_View;
 import View.Transfer_View;
 import java.awt.event.ActionEvent;
@@ -21,10 +21,21 @@ public class Transfer_Controller {
     public Transfer_Controller(){
         transferView = new Transfer_View();
         transferView.setVisible(true);
-        transferView.setActionSubmitButton(new submitAction()); 
+        transferView.setActionSearchButton(new Transfer_Controller.SearchAction());
+        transferView.setActionSubmitButton(new Transfer_Controller.submitAction());
+        transferView.setActionClearButton(new Transfer_Controller.clearAction());
         transferView.setActionHomeButton(new Transfer_Controller.HomeAction());
     }
-    //Submit button
+    
+    //Search
+    private class SearchAction implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            
+        }
+    }
+    
+    //Submit 
     private class submitAction implements ActionListener{
 
         @Override
@@ -38,7 +49,16 @@ public class Transfer_Controller {
             String toSurname = transferView.getToSurname();
         }
     }
-    //Home Button
+        
+    //Clear
+    private class clearAction implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            
+        }
+    }
+    
+    //Home 
     private class HomeAction implements ActionListener{
 
         @Override
