@@ -38,6 +38,7 @@ public class emp_login extends javax.swing.JFrame {
         usernameLabel = new javax.swing.JLabel();
         user = new javax.swing.JTextField();
         pass = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Log in");
@@ -64,6 +65,11 @@ public class emp_login extends javax.swing.JFrame {
         user.setBounds(40, 50, 160, 30);
         getContentPane().add(pass);
         pass.setBounds(40, 120, 160, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icon1.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 230, 210);
 
         setSize(new java.awt.Dimension(244, 249));
         setLocationRelativeTo(null);
@@ -120,6 +126,7 @@ public class emp_login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton loginButton;
     private javax.swing.JPasswordField pass;
     private javax.swing.JLabel passwordLabel;

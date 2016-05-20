@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package Controller;
+
 import Model.AccessSystem;
 import Model.DAOEmployeeAccount;
 import Model.MySQLDAOEmployeeAccount;
+import View.Home_View;
 import java.awt.event.ActionListener;
 
 import View.Login_View;
@@ -23,7 +25,7 @@ public class Login_Controller {
     public Login_Controller() {
         loginView = new Login_View();
         loginView.setVisible(true);
-        loginView.setActionLoginButton(new LoginAction());
+        loginView.setActionLoginButton(new Login_Controller.LoginAction());
     }
     
     private class LoginAction implements ActionListener{
@@ -32,13 +34,15 @@ public class Login_Controller {
         public void actionPerformed(ActionEvent event) {
             String username = loginView.getUername();
             String password = loginView.getPassword();
+            
+            if(username.equals("aaa") && password.equals("aaa")){
+                Home_View home = new Home_View();
+                loginView.dispose();
+            }
         }
     }
     
     public static void main(String[] args){
         new Login_Controller();
     }
-    
-    
-    
 }

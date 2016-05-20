@@ -63,6 +63,7 @@ public class create_account extends javax.swing.JFrame {
         age = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -180,6 +181,11 @@ public class create_account extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(380, 410, 100, 60);
 
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/loginbg.png"))); // NOI18N
+        jLabel14.setText("jLabel14");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(0, 0, 680, 530);
+
         setSize(new java.awt.Dimension(769, 567));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -284,6 +290,7 @@ public class create_account extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
