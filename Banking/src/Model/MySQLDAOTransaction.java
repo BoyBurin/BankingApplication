@@ -32,7 +32,7 @@ public class MySQLDAOTransaction implements DAOTransaction{
         double paidout = myTrans.getPaidOut();
         double balance = myTrans.getBalance();
         String sql = "INSERT INTO "
-                + "BANK_CUSTOMER(customer_id,employee_id,date,type,description,paid_in,paid_out,balance)"
+                + "BANK_TRANSACTION(customer_id,employee_id,date,type,description,paid_in,paid_out,balance)"
                 + "VALUES ('" + customerID + "','" + employeeID + "','" + date + "','" + type
                 + "','" + description + "','" + paidin + "','" + paidout + "','" + balance +  "')";
         databaseExecute.excuteQuery(sql);

@@ -35,35 +35,35 @@ public class MySQLDAOCustomerAccount implements DAOCustomerAccount{
 
     @Override
     public List<CustomerAccount> getAllCustomer() {
-        String sql = "Something";
+        String sql = "SELECT * FROM `BANK_CUSTOMER`, BANK_ADDRESS WHERE BANK_CUSTOMER.id = BANK_ADDRESS.customer_id";
         List<CustomerAccount> all_emp = getList(sql);     
         return all_emp;
     }
 
     @Override
     public List<CustomerAccount> getListByMiddleName(String middle_name) {
-        String sql = "SELECT * FROM `BANK_CUSTOMER` where middle_name = '" + middle_name + "'";
+        String sql = "SELECT * FROM `BANK_CUSTOMER`, BANK_ADDRESS WHERE BANK_CUSTOMER.id = BANK_ADDRESS.customer_id AND BANK_CUSTOMER.middle_name = '" + middle_name + "'";
         List<CustomerAccount> all_emp = getList(sql);     
         return all_emp;
     }
 
     @Override
     public List<CustomerAccount> getListByName(String name) {
-        String sql = "SELECT * FROM `BANK_CUSTOMER` where name = '" + name + "'";
+        String sql = "SELECT * FROM `BANK_CUSTOMER`, BANK_ADDRESS WHERE BANK_CUSTOMER.id = BANK_ADDRESS.customer_id AND BANK_CUSTOMER.name = '" + name + "'";
         List<CustomerAccount> all_emp = getList(sql);     
         return all_emp;
     }
 
     @Override
     public List<CustomerAccount> getListBySurName(String surname) {
-        String sql = "SELECT * FROM `BANK_CUSTOMER` where surname = '" + surname + "'";
+        String sql = "SELECT * FROM `BANK_CUSTOMER`, BANK_ADDRESS WHERE BANK_CUSTOMER.id = BANK_ADDRESS.customer_id AND BANK_CUSTOMER.surname = '" + surname + "'";
         List<CustomerAccount> all_emp = getList(sql);     
         return all_emp;
     }
 
     @Override
     public CustomerAccount getOneCustomer(String id) {
-        String sql = "SELECT * FROM `BANK_CUSTOMER` where username = '"+ Integer.parseInt(id)+ "'";
+        String sql = "SELECT * FROM `BANK_CUSTOMER`, BANK_ADDRESS WHERE BANK_CUSTOMER.id = BANK_ADDRESS.customer_id AND BANKING_CUSTOMER.id = '"+ Integer.parseInt(id)+ "'";
         List<CustomerAccount> all_emp = null;
         CustomerAccount my_emp = null;
         all_emp = databaseExecute.executeQueryObject(sql, myMapper);
@@ -97,9 +97,9 @@ public class MySQLDAOCustomerAccount implements DAOCustomerAccount{
         String province = newCustomer.getAddress().getProvince();
         String postcode = newCustomer.getAddress().getPostCode();
         String sql = "INSERT INTO "
-                + "BANK_CUSTOMER(id,name,middlename,surname,balance,date,email,phone)"
+                + "BANK_CUSTOMER(id,name,middle_name,surname,date,balance,email,phone_number)"
                 + "VALUES ('" + id + "','" + name + "','" + middlename + "','" + surname
-                + "','" + balance + "','" + date + "','" + email + "','" + phone +  "')";
+                + "','" + date + "','" + balance + "','" + email + "','" + phone +  "')";
         databaseExecute.excuteQuery(sql);
         sql = "INSERT INTO "
                 + "BANK_CUSTOMER(address_one,address_two,province,postcode, id)"

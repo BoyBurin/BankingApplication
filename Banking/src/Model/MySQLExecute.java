@@ -21,7 +21,7 @@ public class MySQLExecute<E>{
     CSDbDelegate db;
     
     public MySQLExecute(){
-        db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G3", "csc105_2014", "csc105");
+        db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G5", "csc105_2014", "csc105");
     }
 
     public List<E> executeQueryObject(String sql, MySQLMapper<E> myMapper) {
