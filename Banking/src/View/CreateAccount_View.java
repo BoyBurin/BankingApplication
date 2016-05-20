@@ -28,7 +28,7 @@ public class CreateAccount_View extends JFrame {
     private JTextField zipCodeField;
     private JButton createButton;
     private JButton homeButton;
-    
+       
     
     public static void main(String args[]){
         new CreateAccount_View().setVisible(true);
@@ -135,6 +135,11 @@ public class CreateAccount_View extends JFrame {
         zipCodeField = new JTextField("");
 	zipCodeField.setBounds(150, 400, 160, 30);
 	getContentPane().add(zipCodeField);
+        
+        JFrame background = new JFrame();
+        background = new JFrame();
+        Color c = new Color(161,217,195); 
+        getContentPane().setBackground(c);
     }       
     
     //Button    

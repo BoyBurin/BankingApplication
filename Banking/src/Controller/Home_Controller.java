@@ -89,8 +89,8 @@ public class Home_Controller {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            Home_Controller home = new Home_Controller();
-            
+            Login_Controller login = new Login_Controller();
+            homeView.dispose();
         }
     }
     

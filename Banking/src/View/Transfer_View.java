@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -119,6 +120,11 @@ public class Transfer_View extends JFrame {
         toSurnameField = new JTextField("");
 	toSurnameField.setBounds(450, 220, 160, 30);
 	getContentPane().add(toSurnameField);
+        
+        JFrame background = new JFrame();
+        background = new JFrame();
+        Color c = new Color(161,217,195); 
+        getContentPane().setBackground(c);
     }
     
     private void button(){

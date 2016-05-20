@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -80,6 +81,11 @@ public class Withdraw_View extends JFrame {
         JLabel bathLable = new JLabel("Bath");
 	bathLable.setBounds(350, 100, 80, 30);
 	getContentPane().add(bathLable);
+        
+        JFrame background = new JFrame();
+        background = new JFrame();
+        Color c = new Color(161,217,195); 
+        getContentPane().setBackground(c);
     }
     
     private void button(){

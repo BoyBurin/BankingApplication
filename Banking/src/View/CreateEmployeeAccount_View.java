@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,7 +19,7 @@ import javax.swing.JTextField;
 public class CreateEmployeeAccount_View extends JFrame {
     
     private JButton homeButton;
-    
+        
     public static void main(String[]args){
         new CreateEmployeeAccount_View().setVisible(true);
     }
@@ -61,7 +62,11 @@ public class CreateEmployeeAccount_View extends JFrame {
         JLabel passwordLable = new JLabel("Pasword :");
 	passwordLable.setBounds(40, 240, 80, 30);
 	getContentPane().add(passwordLable);
-          
+        
+        JFrame background = new JFrame();
+        background = new JFrame();
+        Color c = new Color(161,217,195); 
+        getContentPane().setBackground(c);
     }
     
     public void Button(){

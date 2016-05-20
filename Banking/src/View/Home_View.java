@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -38,6 +39,11 @@ public class Home_View extends JFrame {
 	setTitle("Bank Application");
 	getContentPane().setLayout(null);
         setVisible(true);
+        
+        JFrame background = new JFrame();
+        background = new JFrame();
+        Color c = new Color(161,217,195); 
+        getContentPane().setBackground(c);
     }
     
     private void button(){
@@ -57,7 +63,7 @@ public class Home_View extends JFrame {
         interestButton.setBounds(350, 0, 350, 200);
 	getContentPane().add(interestButton);
         
-        stagementPrintOutButton = new JButton("Stagement Print");
+        stagementPrintOutButton = new JButton("Print Stagement");
         stagementPrintOutButton.setBounds(350, 200, 350, 200);
 	getContentPane().add(stagementPrintOutButton);
         
