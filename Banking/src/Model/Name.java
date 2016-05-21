@@ -30,12 +30,24 @@ public class Name {
         this.name = name;
     }
     
+    public String getName(){
+        return name;
+    }
+    
     public void setMiddleName(String middle_name){
         this.middle_name = middle_name;
     }
     
+    public String getMiddleName(){
+        return middle_name;
+    }
+    
     public void setSurname(String surname){
         this.surname = surname;
+    }
+    
+    public String getSurname(){
+        return surname;
     }
     
     public String toString(){
