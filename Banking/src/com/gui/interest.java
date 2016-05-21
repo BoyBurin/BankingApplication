@@ -139,11 +139,11 @@ public class interest extends javax.swing.JFrame {
         // TODO add your handling code here:
         String id = accid.getText();
         if(id==null || id.equals("")) id="0";
-        BankAccount a = BankAccount.search(Long.parseLong(id));
+        BankAccount a = new BankAccount();//BankAccount.search(Long.parseLong(id));
         if(a != null){
-            jLabel1.setText("Last balance : "+ a.getBalance());
-            jLabel4.setText("Interest : "+ (a.getBalance()*0.1/100));
-            jLabel5.setText("Balance : "+ (a.getBalance()+(a.getBalance()*0.1/100)));
+            jLabel1.setText("Last balance : "+ 100);// a.getBalance());
+            jLabel4.setText("Interest : "+ 1);//(a.getBalance()*0.1/100));
+            jLabel5.setText("Balance : "+ 101);//(a.getBalance()+(a.getBalance()*0.1/100)));
             
         }else{
             JOptionPane.showMessageDialog(this, "Please try agian");
