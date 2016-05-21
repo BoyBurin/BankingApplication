@@ -46,6 +46,7 @@ public class Transfer_View extends JFrame {
         setSize(new java.awt.Dimension(700, 700));
 	setTitle("Transfer");
 	getContentPane().setLayout(null);
+        
     }
     
     private void inComponent(){
@@ -122,7 +123,6 @@ public class Transfer_View extends JFrame {
 	getContentPane().add(toSurnameField);
         
         JFrame background = new JFrame();
-        background = new JFrame();
         Color c = new Color(161,217,195); 
         getContentPane().setBackground(c);
     }

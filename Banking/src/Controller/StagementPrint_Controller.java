@@ -21,7 +21,7 @@ public class StagementPrint_Controller {
         stagementPrintView = new StagementPrint_View();
         stagementPrintView.setVisible(true);
         stagementPrintView.setActionSearchButton(new StagementPrint_Controller.SearchAction());
-        stagementPrintView.setActionNextButton(new StagementPrint_Controller.nextAction());
+        stagementPrintView.setActionHomeButton(new StagementPrint_Controller.homeAction());
     }
     
     //Search
@@ -31,8 +31,8 @@ public class StagementPrint_Controller {
             
         }
     }
-    //Next
-    private class nextAction implements ActionListener{
+    //Home
+    private class homeAction implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent event) {

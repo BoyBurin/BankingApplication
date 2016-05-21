@@ -23,7 +23,7 @@ public class Home_View extends JFrame {
     private JButton interestButton;
     private JButton stagementPrintOutButton;
     private JButton logoutButton;
-    private JButton createCustomerButton;
+    private JButton employeeAccountButton;
     
     public static void main (String [] args){
         new Home_View();
@@ -36,13 +36,15 @@ public class Home_View extends JFrame {
     
     private void makeFrame(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(700, 800));
+	setBounds(100, 100, 454, 343);
+        setSize(new java.awt.Dimension(700, 640));
 	setTitle("Bank Application");
-	setLayout(null);
+	getContentPane().setLayout(null);
+        setLocationRelativeTo(null);
+        setResizable(false);
         setVisible(true);
         
-        /*JFrame background = new JFrame();
-        background = new JFrame();*/
+        JFrame background = new JFrame();
         Color c = new Color(161,217,195); 
         setBackground(c);
     }
@@ -72,10 +74,15 @@ public class Home_View extends JFrame {
         createCustomerButton.setBounds(350, 400, 350, 200);
 	add(createCustomerButton);
         
+        employeeAccountButton = new JButton("Employee Account");
+        employeeAccountButton.setBounds(350, 400, 350, 100);
+	getContentPane().add(employeeAccountButton);
+        
         logoutButton = new JButton("Log-out");
-        logoutButton.setBounds(0, 600, 350, 200);
-	add(logoutButton);
-        setR
+        logoutButton.setBounds(350, 500, 350, 100);
+	getContentPane().add(logoutButton);
+        
+        
     }
     
     public void setActionDepositButton(ActionListener action){
@@ -93,7 +100,11 @@ public class Home_View extends JFrame {
     public void setActionStagementPrintOutButton(ActionListener action){
         stagementPrintOutButton.addActionListener(action);
     }
+    public void setActionEmployeeAccountButton(ActionListener action){
+        employeeAccountButton.addActionListener(action);
+    }
     public void setActionLogOutButton(ActionListener action){
         logoutButton.addActionListener(action);
     }
+    
 }

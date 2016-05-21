@@ -79,6 +79,15 @@ public class Home_Controller {
             
         }
     }
+    //employeeAccount Button
+    private class employeeAccountAction implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            CreateEmployeeAccount_Controller employeeAccount = new CreateEmployeeAccount_Controller();
+            
+        }
+    }
     //Logout Button
     private class logoutAction implements ActionListener{
 
