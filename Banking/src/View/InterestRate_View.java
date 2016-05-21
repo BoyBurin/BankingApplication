@@ -24,9 +24,6 @@ public class InterestRate_View extends JFrame {
     private JButton showButton; 
     private JButton homeButton;
         
-    public static void main (String [] args){
-        new InterestRate_View().setVisible(true);
-    }
     
     public InterestRate_View(){
         makeFrame();

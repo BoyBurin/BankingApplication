@@ -30,9 +30,6 @@ public class Transfer_View extends JFrame {
     private JButton submitButton; 
     private JButton homeButton;
     
-    public static void main (String [] args){
-        new Transfer_View().setVisible(true);
-    }
     
     public Transfer_View(){
         makeFrame();
@@ -45,6 +42,8 @@ public class Transfer_View extends JFrame {
 	setBounds(100, 100, 454, 343);
         setSize(new java.awt.Dimension(700, 700));
 	setTitle("Transfer");
+        setLocationRelativeTo(null);
+        setResizable(false);
 	getContentPane().setLayout(null);
         
     }

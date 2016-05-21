@@ -27,9 +27,6 @@ public class Withdraw_View extends JFrame {
     private JButton submitButton; 
     private JButton homeButton;
     
-    public static void main (String [] args){
-        new Withdraw_View().setVisible(true);
-    }
     
     public Withdraw_View(){
         makeFrame();

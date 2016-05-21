@@ -30,9 +30,6 @@ public class CreateAccount_View extends JFrame {
     private JButton homeButton;
        
     
-    public static void main(String args[]){
-        new CreateAccount_View().setVisible(true);
-    }
     
     public CreateAccount_View(){
         inComponent();

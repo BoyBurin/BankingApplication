@@ -29,9 +29,6 @@ public class StagementPrint_View extends JFrame {
         button();
     }
     
-    public static void main (String [] args){
-        new StagementPrint_View().setVisible(true);
-    }
     
     private void makeFrame(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

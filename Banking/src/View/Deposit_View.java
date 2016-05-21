@@ -27,9 +27,7 @@ public class Deposit_View extends JFrame {
     private JButton submitButton; 
     private JButton homeButton;
     
-    public static void main (String [] args){
-        new Deposit_View().setVisible(true);
-    }
+
     
     public Deposit_View(){
         makeFrame();

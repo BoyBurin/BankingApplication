@@ -31,6 +31,7 @@ public class Home_Controller {
         homeView.setActionStagementPrintOutButton(new stagementPrintOutAction());
         homeView.setActionLogOutButton(new logoutAction());
         homeView.setActionInterestButton(new interestAction());
+        homeView.setActionCustomerAccountButton(new CustomerAccountAction());
     }
     
     //Deposit Button
@@ -49,6 +50,7 @@ public class Home_Controller {
         @Override
         public void actionPerformed(ActionEvent event) {
             Withdraw_Controller withdraw = new Withdraw_Controller();
+            homeView.dispose();
             
         }
     }
@@ -58,6 +60,7 @@ public class Home_Controller {
         @Override
         public void actionPerformed(ActionEvent event) {
             Transfer_Controller transfer = new Transfer_Controller();
+            homeView.dispose();
             
         }
     }
@@ -67,6 +70,7 @@ public class Home_Controller {
         @Override
         public void actionPerformed(ActionEvent event) {
             StagementPrint_Controller stagementPrint = new StagementPrint_Controller();
+            homeView.dispose();
             
         }
     }
@@ -76,16 +80,17 @@ public class Home_Controller {
         @Override
         public void actionPerformed(ActionEvent event) {
             InterestRate_Controller interest = new InterestRate_Controller();
+            homeView.dispose();
             
         }
     }
     //employeeAccount Button
-    private class employeeAccountAction implements ActionListener{
+    private class CustomerAccountAction implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            CreateEmployeeAccount_Controller employeeAccount = new CreateEmployeeAccount_Controller();
-            
+            CreateAccount_Controller customerAccount = new CreateAccount_Controller();
+            homeView.dispose();
         }
     }
     //Logout Button

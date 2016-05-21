@@ -22,8 +22,8 @@ public class CreateAccount_Controller {
     public CreateAccount_Controller(){
         createAccView = new CreateAccount_View();
         createAccView.setVisible(true);
-        createAccView.setActionCreateButton(new CreateAccount_Controller.CreateAction());
-        createAccView.setActionHomeButton(new CreateAccount_Controller.HomeAction());
+        createAccView.setActionCreateButton(new CreateAction());
+        createAccView.setActionHomeButton(new HomeAction());
     }
     
     private class createAccAction implements ActionListener{

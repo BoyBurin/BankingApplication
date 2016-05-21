@@ -23,11 +23,8 @@ public class Home_View extends JFrame {
     private JButton interestButton;
     private JButton stagementPrintOutButton;
     private JButton logoutButton;
-    private JButton employeeAccountButton;
+    private JButton customerAccountButton;
     
-    public static void main (String [] args){
-        new Home_View();
-    }
     
     public Home_View(){
         makeFrame();
@@ -70,13 +67,10 @@ public class Home_View extends JFrame {
         stagementPrintOutButton.setBounds(350, 200, 350, 200);
 	add(stagementPrintOutButton);
         
-        createCustomerButton = new JButton("Create Customer");
-        createCustomerButton.setBounds(350, 400, 350, 200);
-	add(createCustomerButton);
         
-        employeeAccountButton = new JButton("Employee Account");
-        employeeAccountButton.setBounds(350, 400, 350, 100);
-	getContentPane().add(employeeAccountButton);
+        customerAccountButton = new JButton("Employee Account");
+        customerAccountButton.setBounds(350, 400, 350, 100);
+	getContentPane().add(customerAccountButton);
         
         logoutButton = new JButton("Log-out");
         logoutButton.setBounds(350, 500, 350, 100);
@@ -100,8 +94,8 @@ public class Home_View extends JFrame {
     public void setActionStagementPrintOutButton(ActionListener action){
         stagementPrintOutButton.addActionListener(action);
     }
-    public void setActionEmployeeAccountButton(ActionListener action){
-        employeeAccountButton.addActionListener(action);
+    public void setActionCustomerAccountButton(ActionListener action){
+        customerAccountButton.addActionListener(action);
     }
     public void setActionLogOutButton(ActionListener action){
         logoutButton.addActionListener(action);
