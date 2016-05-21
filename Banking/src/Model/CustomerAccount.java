@@ -30,6 +30,10 @@ public class CustomerAccount {
         this.address = address;
     }
     
+    public CustomerAccount(Name name, double balance, String date, String email, String phoneNumber, Address address){
+        this(0,name,balance,date,email,phoneNumber,address);
+    }
+    
     public CustomerAccount(CustomerAccount target, double updateBalance){
         copyObject(target);
         balance = updateBalance;

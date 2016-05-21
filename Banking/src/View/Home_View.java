@@ -68,7 +68,7 @@ public class Home_View extends JFrame {
 	add(stagementPrintOutButton);
         
         
-        customerAccountButton = new JButton("Employee Account");
+        customerAccountButton = new JButton("Create Customer Account");
         customerAccountButton.setBounds(350, 400, 350, 100);
 	getContentPane().add(customerAccountButton);
         

@@ -84,7 +84,6 @@ public class MySQLDAOCustomerAccount implements DAOCustomerAccount{
 
     @Override
     public void addCustomerAccount(CustomerAccount newCustomer) {
-        int id = Integer.parseInt(newCustomer.getID());
         String name = newCustomer.getName().getName();
         String middlename = newCustomer.getName().getMiddleName();
         String surname = newCustomer.getName().getSurname();
@@ -97,15 +96,34 @@ public class MySQLDAOCustomerAccount implements DAOCustomerAccount{
         String province = newCustomer.getAddress().getProvince();
         String postcode = newCustomer.getAddress().getPostCode();
         String sql = "INSERT INTO "
-                + "BANK_CUSTOMER(id,name,middle_name,surname,date,balance,email,phone_number)"
-                + "VALUES ('" + id + "','" + name + "','" + middlename + "','" + surname
+                + "BANK_CUSTOMER(name,middle_name,surname,date,balance,email,phone_number)"
+                + "VALUES ('" + "','" + name + "','" + middlename + "','" + surname
                 + "','" + date + "','" + balance + "','" + email + "','" + phone +  "')";
         databaseExecute.excuteQuery(sql);
+        int id = getCustomerID(newCustomer);
         sql = "INSERT INTO "
                 + "BANK_CUSTOMER(address_one,address_two,province,postcode, id)"
                 + "VALUES ('" + address1 + "','" + address2 + "','" + province + "','" + postcode
                 + "','" + id + "')";
         databaseExecute.excuteQuery(sql);
+    }
+    
+    private int getCustomerID(CustomerAccount customer){
+        Name customername = customer.getName();
+        String name = customername.getName();
+        String middle_name = customername.getMiddleName();
+        String surname = customername.getSurname();
+        String sql = "SELECT * FROM `BANK_CUSTOMER`WHERE BANK_CUSTOMER.name = '" + name+ "'" + "AND middle_name = '" + middle_name + "' AND surname = '" + surname + "'";
+        List<CustomerAccount> all_emp = null;
+        CustomerAccount my_emp = null;
+        all_emp = databaseExecute.executeQueryObject(sql, myMapper);
+        my_emp = null;
+        if(!all_emp.isEmpty()){
+            for(CustomerAccount emp : all_emp){
+                my_emp = emp;
+            }
+        }
+        return Integer.parseInt(my_emp.getID());
     }
     
     

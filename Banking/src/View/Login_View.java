@@ -70,7 +70,7 @@ public class Login_View extends JFrame
         
         imageLabel = new JLabel();
         imageLabel.setBounds(0, 0, 400, 400);
-        imageLabel.setIcon(new ImageIcon(getClass().getResource("/com/gui/icon1.png"))); 
+        imageLabel.setIcon(new ImageIcon("picture/icon1.png")); 
         getContentPane().add(imageLabel);
         
     }
