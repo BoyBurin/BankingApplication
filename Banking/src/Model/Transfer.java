@@ -30,7 +30,7 @@ public class Transfer {
         int id = Integer.parseInt(customer.getID());
         double balance = customer.getBalance() + amount;
         CustomerAccount updateCustomer = new CustomerAccount(customer, balance);
-        daoCustomer.updateCustomerBalance(customer);
+        daoCustomer.updateCustomerBalance(updateCustomer);
     }
     
     private void addTransaction(CustomerAccount customer, double amount){

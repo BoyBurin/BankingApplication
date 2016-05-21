@@ -19,13 +19,14 @@ import javax.swing.JTextField;
 public class Transfer_View extends JFrame {
     
     private JTextField accountNoField;
-    private JTextField nameField;
-    private JTextField surnameField;
+    private JLabel nameLabel;
+    private JLabel surnameLabel;
     private JTextField toAccountNoField;
-    private JTextField toNameField;
-    private JTextField toSurnameField;
+    private JLabel tonameLabel;
+    private JLabel tosurnameLabel;
     private JTextField amountField;
     private JButton searchButton;
+    private JButton tosearchButton;
     private JButton clearButton;
     private JButton submitButton; 
     private JButton homeButton;
@@ -61,17 +62,19 @@ public class Transfer_View extends JFrame {
 	nameLable.setBounds(40, 60, 80, 30);
 	getContentPane().add(nameLable);
         
-        nameField = new JTextField("");
-	nameField.setBounds(150, 60, 160, 30);
-	getContentPane().add(nameField);
+        nameLabel = new JLabel("");
+	nameLabel.setBounds(150, 60, 160, 30);
+        nameLabel.setForeground(Color.RED);
+	getContentPane().add(nameLabel);
         
         JLabel surnameLable = new JLabel("Surname :");
 	surnameLable.setBounds(350, 60, 80, 30);
 	getContentPane().add(surnameLable);
         
-        surnameField = new JTextField("");
-	surnameField.setBounds(450, 60, 160, 30);
-	getContentPane().add(surnameField);
+        surnameLabel = new JLabel("");
+	surnameLabel.setBounds(450, 60, 160, 30);
+        surnameLabel.setForeground(Color.RED);
+	getContentPane().add(surnameLabel);
         
         JLabel amountLable = new JLabel("Amount :");
 	amountLable.setBounds(40, 100, 80, 30);
@@ -109,17 +112,19 @@ public class Transfer_View extends JFrame {
 	toNameLable.setBounds(40, 220, 80, 30);
 	getContentPane().add(toNameLable);
         
-        toNameField = new JTextField("");
-	toNameField.setBounds(150, 220, 160, 30);
-	getContentPane().add(toNameField);
+        tonameLabel = new JLabel("");
+	tonameLabel.setBounds(150, 220, 160, 30);
+        tonameLabel.setForeground(Color.RED);
+	getContentPane().add(tonameLabel);
         
         JLabel toSurnameLable = new JLabel("Surname :");
 	toSurnameLable.setBounds(350, 220, 80, 30);
 	getContentPane().add(toSurnameLable);
         
-        toSurnameField = new JTextField("");
-	toSurnameField.setBounds(450, 220, 160, 30);
-	getContentPane().add(toSurnameField);
+        tosurnameLabel = new JLabel("");
+	tosurnameLabel.setBounds(450, 220, 160, 30);
+        tosurnameLabel.setForeground(Color.RED);
+	getContentPane().add(tosurnameLabel);
         
         JFrame background = new JFrame();
         Color c = new Color(161,217,195); 
@@ -130,6 +135,10 @@ public class Transfer_View extends JFrame {
         searchButton = new JButton("Search");
         searchButton.setBounds(350, 20, 100, 30);
 	getContentPane().add(searchButton);
+        
+        tosearchButton = new JButton("Search");
+        tosearchButton.setBounds(350, 180, 100, 30);
+	getContentPane().add(tosearchButton);
         
         submitButton = new JButton("Submit");
         submitButton.setBounds(200, 280, 100, 30);
@@ -149,32 +158,50 @@ public class Transfer_View extends JFrame {
         return accountNo;
     }
     public String getName(){
-        String name = nameField.getText();
+        String name = nameLabel.getText();
         return name;
     }
+    public void setName(String name){
+        nameLabel.setText(name);
+    }
     public String getSurname(){
-        String surname = surnameField.getText();
+        String surname = surnameLabel.getText();
         return surname;
+    }
+    public void setSurname(String surname){
+        surnameLabel.setText(surname);
     }
     public String getAmount(){
         String amount = amountField.getText();
         return amount;
+    }
+    public void setAmount(int amount){
+        amountField.setText(Integer.toString(amount));
     }
     public String getToAccountNo(){
         String toAccountNo = toAccountNoField.getText();
         return toAccountNo;
     }
     public String getToName(){
-        String toName = toNameField.getText();
+        String toName = tonameLabel.getText();
         return toName;
     }
+     public void setToName(String name){
+        tonameLabel.setText(name);
+    }
     public String getToSurname(){
-        String toSurname = toSurnameField.getText();
+        String toSurname = tosurnameLabel.getText();
         return toSurname;
+    }
+    public void setToSurname(String surname){
+        tosurnameLabel.setText(surname);
     }
     
     public void setActionSearchButton(ActionListener action){
         searchButton.addActionListener(action);
+    }
+    public void setActionTargetSearchButton(ActionListener action){
+        tosearchButton.addActionListener(action);
     }
     public void setActionSubmitButton(ActionListener action){
         submitButton.addActionListener(action);
@@ -184,5 +211,15 @@ public class Transfer_View extends JFrame {
     }
     public void setActionHomeButton(ActionListener action){
         homeButton.addActionListener(action);
+    }
+    
+    public void clearText(){
+        accountNoField.setText("");
+        nameLabel.setText("");
+        surnameLabel.setText("");
+        amountField.setText("");
+        toAccountNoField.setText("");
+        tonameLabel.setText("");
+        tosurnameLabel.setText("");
     }
 }
