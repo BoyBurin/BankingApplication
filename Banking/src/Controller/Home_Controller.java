@@ -32,6 +32,7 @@ public class Home_Controller {
         homeView.setActionLogOutButton(new logoutAction());
         homeView.setActionInterestButton(new interestAction());
         homeView.setActionCustomerAccountButton(new CustomerAccountAction());
+        homeView.setActionEmployeeButton(new EmployeeAction());
     }
     
     //Deposit Button
@@ -99,6 +100,15 @@ public class Home_Controller {
         @Override
         public void actionPerformed(ActionEvent event) {
             Login_Controller login = new Login_Controller();
+            homeView.dispose();
+        }
+    }
+    
+    private class EmployeeAction implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            CreateEmployeeAccount_Controller employee = new CreateEmployeeAccount_Controller();
             homeView.dispose();
         }
     }

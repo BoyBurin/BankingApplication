@@ -35,9 +35,10 @@ public class Login_Controller {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            String username = loginView.getUername();
+            String username = loginView.getUername().trim();
             String password = loginView.getPassword();
             if(username.equals("") || password.equals("")){
+                loginView.clearUsernamePassword();
                 JOptionPane.showMessageDialog(null,"Please fill the remaining spaces!","Message",JOptionPane.INFORMATION_MESSAGE);	
             }
             else if(access.login(username, password)){

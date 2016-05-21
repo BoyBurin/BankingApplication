@@ -20,6 +20,11 @@ public class CreateEmployeeAccount_View extends JFrame {
     
     private JButton homeButton;
     private JButton changPasswordButton;
+    private JLabel nameLabel;
+    private JLabel middlenameLabel; 
+    private JLabel surnameLabel; 
+    private JLabel usernameLabel;
+    private JLabel employeeID;
         
     public static void main(String[]args){
         new CreateEmployeeAccount_View().setVisible(true);
@@ -45,26 +50,38 @@ public class CreateEmployeeAccount_View extends JFrame {
         JLabel employeeNoLable = new JLabel("Employee No. :");
 	employeeNoLable.setBounds(40, 40, 100, 30);
 	getContentPane().add(employeeNoLable);
+        employeeID = new JLabel();
+        employeeID.setBounds(140, 40, 100, 30);
+        getContentPane().add(employeeID);
                       
         JLabel nameLable = new JLabel("Name :");
 	nameLable.setBounds(40, 80, 80, 30);
 	getContentPane().add(nameLable);
+        nameLabel = new JLabel();
+        nameLabel.setBounds(140, 80, 80, 30);
+        getContentPane().add(nameLabel);
         
         JLabel middleNameLable = new JLabel("Middle Name :");
 	middleNameLable.setBounds(40, 120, 80, 30);
 	getContentPane().add(middleNameLable);
+        middlenameLabel = new JLabel("");
+        middlenameLabel.setBounds(140, 120, 80, 30);
+        getContentPane().add(middlenameLabel);
         
         JLabel surnameLable = new JLabel("Surname :");
 	surnameLable.setBounds(40, 160, 80, 30);
 	getContentPane().add(surnameLable);
+        surnameLabel = new JLabel("");
+        surnameLabel.setBounds(140, 160, 80, 30);
+        getContentPane().add(surnameLabel);
         
         JLabel usernameLable = new JLabel("Username :");
 	usernameLable.setBounds(40, 200, 80, 30);
 	getContentPane().add(usernameLable);
+        usernameLabel = new JLabel("");
+        usernameLabel.setBounds(140, 200, 80, 30);
+        getContentPane().add(usernameLabel);
         
-        JLabel passwordLable = new JLabel("Pasword :");
-	passwordLable.setBounds(40, 240, 80, 30);
-	getContentPane().add(passwordLable);
         
         JFrame background = new JFrame();
         Color c = new Color(161,217,195); 
@@ -88,4 +105,21 @@ public class CreateEmployeeAccount_View extends JFrame {
     public void setActionHomeButton(ActionListener action){
         homeButton.addActionListener(action);
     }
+    
+    public void setIDLebel(String id){
+        employeeID.setText(id);
+    }
+    public void setnameLebel(String name){
+        nameLabel.setText(name);
+    }
+    public void setMiddlenameLebel(String middlename){
+        middlenameLabel.setText(middlename);
+    }
+    public void setSurnameLebel(String surname){
+        surnameLabel.setText(surname);
+    }
+    public void setUsernameLebel(String username){
+        usernameLabel.setText(username);
+    }
+    
 }

@@ -24,6 +24,7 @@ public class Home_View extends JFrame {
     private JButton stagementPrintOutButton;
     private JButton logoutButton;
     private JButton customerAccountButton;
+    private JButton employeeAccountButton;
     
     
     public Home_View(){
@@ -64,8 +65,12 @@ public class Home_View extends JFrame {
 	add(interestButton);
         
         stagementPrintOutButton = new JButton("Print Stagement");
-        stagementPrintOutButton.setBounds(350, 200, 350, 200);
+        stagementPrintOutButton.setBounds(350, 200, 350, 100);
 	add(stagementPrintOutButton);
+        
+        employeeAccountButton = new JButton("Employee Info");
+        employeeAccountButton.setBounds(350, 300, 350, 100);
+	add(employeeAccountButton);
         
         
         customerAccountButton = new JButton("Create Customer Account");
@@ -99,6 +104,9 @@ public class Home_View extends JFrame {
     }
     public void setActionLogOutButton(ActionListener action){
         logoutButton.addActionListener(action);
+    }
+    public void setActionEmployeeButton(ActionListener action){
+        employeeAccountButton.addActionListener(action);
     }
     
 }

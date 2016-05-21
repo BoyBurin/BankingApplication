@@ -97,18 +97,18 @@ public class MySQLDAOCustomerAccount implements DAOCustomerAccount{
         String postcode = newCustomer.getAddress().getPostCode();
         String sql = "INSERT INTO "
                 + "BANK_CUSTOMER(name,middle_name,surname,date,balance,email,phone_number)"
-                + "VALUES ('" + "','" + name + "','" + middlename + "','" + surname
+                + "VALUES ('" + name + "','" + middlename + "','" + surname
                 + "','" + date + "','" + balance + "','" + email + "','" + phone +  "')";
         databaseExecute.excuteQuery(sql);
-        int id = getCustomerID(newCustomer);
+        newCustomer  = getCustomerID(newCustomer);
         sql = "INSERT INTO "
-                + "BANK_CUSTOMER(address_one,address_two,province,postcode, id)"
-                + "VALUES ('" + address1 + "','" + address2 + "','" + province + "','" + postcode
-                + "','" + id + "')";
+                + "BANK_ADDRESS(customer_id, address_one,address_two,province,postcode)"
+                + "VALUES ('" + Integer.parseInt(newCustomer.getID()) + "','"+ address1 + "','" + address2 + "','" + province + "','" + postcode
+                + "')";
         databaseExecute.excuteQuery(sql);
     }
     
-    private int getCustomerID(CustomerAccount customer){
+    private CustomerAccount getCustomerID(CustomerAccount customer){
         Name customername = customer.getName();
         String name = customername.getName();
         String middle_name = customername.getMiddleName();
@@ -123,7 +123,7 @@ public class MySQLDAOCustomerAccount implements DAOCustomerAccount{
                 my_emp = emp;
             }
         }
-        return Integer.parseInt(my_emp.getID());
+        return my_emp;
     }
     
     

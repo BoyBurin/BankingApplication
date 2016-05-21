@@ -26,7 +26,7 @@ public class AccessSystem {
             success = checkUsername(username, info_username) && checkPassword(password, info_password);
         }
         if(success){
-            this.emp = emp;
+            this.emp = info;
         }
         return success;
         

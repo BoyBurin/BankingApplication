@@ -17,8 +17,6 @@ public class CreateAccount_View extends JFrame {
     private JTextField nameField;
     private JTextField middleNameField;
     private JTextField surnameField;
-    private JTextField usernameField;
-    private JTextField passwordField;
     private JTextField dateField;
     private JTextField emailField;
     private JTextField phoneField;
@@ -26,8 +24,10 @@ public class CreateAccount_View extends JFrame {
     private JTextField addressLine2Field;
     private JTextField provinceField;
     private JTextField zipCodeField;
+    private JTextField balanceField;
     private JButton createButton;
     private JButton homeButton;
+    private JButton clearButton;
        
     
     
@@ -54,30 +54,22 @@ public class CreateAccount_View extends JFrame {
         nameField = new JTextField("");
 	nameField.setBounds(150, 40, 100, 30);
 	getContentPane().add(nameField);
-                
-        middleNameField = new JTextField("");
-	middleNameField.setBounds(250, 40, 100, 30);
-	getContentPane().add(middleNameField);
         
-        surnameField = new JTextField("");
-	surnameField.setBounds(350, 40, 100, 30);
-	getContentPane().add(surnameField);
-        
-        JLabel usernameLable = new JLabel("Username :");
+        JLabel usernameLable = new JLabel("Middlename :");
 	usernameLable.setBounds(40, 80, 80, 30);
 	getContentPane().add(usernameLable);
         
-        usernameField = new JTextField("");
-	usernameField.setBounds(150, 80, 160, 30);
-	getContentPane().add(usernameField);
+        middleNameField = new JTextField("");
+	middleNameField.setBounds(150, 80, 160, 30);
+	getContentPane().add(middleNameField);
         
-        JLabel passwordLable = new JLabel("Password :");
+        JLabel passwordLable = new JLabel("Surname :");
 	passwordLable.setBounds(40, 120, 80, 30);
 	getContentPane().add(passwordLable);
         
-        passwordField = new JTextField("");
-	passwordField.setBounds(150, 120, 160, 30);
-	getContentPane().add(passwordField);
+        surnameField = new JTextField("");
+	surnameField.setBounds(150, 120, 160, 30);
+	getContentPane().add(surnameField);
         
         JLabel dateLable = new JLabel("Date :");
 	dateLable.setBounds(40, 160, 80, 30);
@@ -85,6 +77,7 @@ public class CreateAccount_View extends JFrame {
         
         dateField = new JTextField("");
 	dateField.setBounds(150, 160, 160, 30);
+        dateField.setEnabled(false);
 	getContentPane().add(dateField);
         
         JLabel emailLable = new JLabel("Email :");
@@ -135,6 +128,14 @@ public class CreateAccount_View extends JFrame {
 	zipCodeField.setBounds(150, 400, 160, 30);
 	getContentPane().add(zipCodeField);
         
+        JLabel balanceLabel = new JLabel("Balance :");
+	balanceLabel.setBounds(40, 440, 80, 30);
+	getContentPane().add(balanceLabel);
+        
+        balanceField = new JTextField("");
+	balanceField.setBounds(150, 440, 160, 30);
+	getContentPane().add(balanceField);
+        
         JFrame background = new JFrame();
         Color c = new Color(161,217,195); 
         getContentPane().setBackground(c);
@@ -143,15 +144,40 @@ public class CreateAccount_View extends JFrame {
     //Button    
     public void createButton(){
         createButton = new JButton("Create");
-        createButton.setBounds(200, 460, 100, 30);
+        createButton.setBounds(200, 480, 100, 30);
 	getContentPane().add(createButton);
         
         homeButton = new JButton("Home");
-        homeButton.setBounds(400, 460, 100, 30);
+        homeButton.setBounds(400, 480, 100, 30);
 	getContentPane().add(homeButton);
+        
+        clearButton = new JButton("Clear");
+        clearButton.setBounds(300, 560, 100, 30);
+        getContentPane().add(clearButton);
     }
     public void setActionCreateAccButton(ActionListener action){
         createButton.addActionListener(action);
+    }
+    
+    public void clearText(){
+        nameField.setText("");
+        middleNameField.setText("");
+        surnameField.setText("");
+        emailField.setText("");
+        phoneField.setText("");
+        addressLine1Field.setText("");
+        addressLine2Field.setText("");
+        provinceField.setText("");
+        zipCodeField.setText("");
+    }
+    
+    public void setActionClearButton(ActionListener listener){
+        clearButton.addActionListener(listener);
+    }
+    
+    public Double getBalance(){
+        Double balance = Double.parseDouble(balanceField.getText());
+        return balance;
     }
     
     public String getName(){
@@ -166,17 +192,9 @@ public class CreateAccount_View extends JFrame {
         String surname = surnameField.getText();
         return surname;
     }
-    public String getUername(){
-        String userName = usernameField.getText();
-        return userName;
-    }
-    public String getPassword(){
-        String password = passwordField.getText();
-        return password;
-    }
-    public String getDate(){
-        String date = dateField.getText();
-        return date;
+
+    public void setDate(String date){
+        dateField.setText(date);
     }
     public String getEmail(){
         String email = emailField.getText();

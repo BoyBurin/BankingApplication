@@ -16,7 +16,10 @@ public class MySQLCustomerMapper implements MySQLMapper<CustomerAccount>{
     @Override
     public CustomerAccount mapRow(HashMap info) {
         int id = Integer.parseInt((String)(info.get("id")));
-        Name name = (Name)(info.get("name"));
+        String firstname = (String)(info.get("name"));
+        String middle_name = (String)(info.get("middle_name"));
+        String surname = (String)(info.get("surname"));
+        Name name = new Name(firstname, middle_name, surname);
         double balance = Double.parseDouble((String)(info.get("balance")));
         String date = (String)(info.get("date"));
         String email = (String)(info.get("email"));
