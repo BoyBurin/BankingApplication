@@ -7,7 +7,10 @@ package View;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import javafx.scene.control.PasswordField;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -21,13 +24,15 @@ public class Login_View extends JFrame
     private JPasswordField passwordField;
     private JButton loginButton;
     private JButton createAccButton;
-    private ImageIcon image;      
-    private JLabel jLabel1;
+    //private ImageIcon image;      
+    //private JLabel pic;
+    private JLabel imageLabel;
+    private JPanel bg;
     
     public Login_View(){
-        makeFrame();
         inComponent();
-        
+        makeFrame();
+        button();
     }
     
     private void makeFrame(){
@@ -56,26 +61,18 @@ public class Login_View extends JFrame
         passwordField = new JPasswordField("");
 	passwordField.setBounds(40, 120, 160, 30);
 	getContentPane().add(passwordField);
-        button();
-        
+             
         JFrame background = new JFrame();
-        background = new JFrame();
         Color c = new Color(161,217,195); 
         getContentPane().setBackground(c);
         
-        /*image = new ImageIcon(getClass().getResource("icon1.png"));
-        //image.setBounds(40, 90, 80, 30);
-        JLabel label = new JLabel(image);
-        getContentPane().add(label);
-        
-        //jLabel1.setIcon(new ImageIcon(getClass().getResource("/Image/icon1.png"))); 
-        /*jLabel1.setIcon(new ImageIcon(getClass().getResource("D:\\icon1.png"))); 
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 30, 20);*/
-        
+        imageLabel = new JLabel();
+        imageLabel.setBounds(0, 0, 400, 400);
+        imageLabel.setIcon(new ImageIcon(getClass().getResource("/com/gui/resource/icon1.png"))); 
+        getContentPane().add(imageLabel);
         
     }
-      
+    
     public void button(){
         loginButton = new JButton("login");
         loginButton.setBounds(80, 170, 70, 30);
@@ -91,7 +88,7 @@ public class Login_View extends JFrame
         String password = passwordField.getText();
         return password;
     }
-    
+      
     public void setActionLoginButton(ActionListener action){
         loginButton.addActionListener(action);
     }

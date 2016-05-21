@@ -122,7 +122,6 @@ public class Transfer_View extends JFrame {
 	getContentPane().add(toSurnameField);
         
         JFrame background = new JFrame();
-        background = new JFrame();
         Color c = new Color(161,217,195); 
         getContentPane().setBackground(c);
     }

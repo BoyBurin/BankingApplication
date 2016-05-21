@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 public class StagementPrint_View extends JFrame {
     private JTextField accountNoField;
     private JButton searchButton;
-    private JButton nextButton;
+    private JButton homeButton;
     private JTable table;
     
     public StagementPrint_View(){
@@ -51,17 +51,16 @@ public class StagementPrint_View extends JFrame {
 	getContentPane().add(accountNoField);
         
         JFrame background = new JFrame();
-        background = new JFrame();
         Color c = new Color(161,217,195); 
         getContentPane().setBackground(c);
         
-        /*table.setModel(new javax.swing.table.DefaultTableModel(
+        table = new JTable();
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
             },
             new String [] {
-                "DATE", "CODE", "AMOUNT", "BALANCE", "STAFF ID"
-            } ));*/
+                "DATE", "DISCRIPTION", "Ref.", "WITHDRAWS", "DEPOSITS", "BALANCE"
+            } ));
     }
     
     public void button(){
@@ -69,17 +68,16 @@ public class StagementPrint_View extends JFrame {
         searchButton.setBounds(500, 20, 100, 30);
 	getContentPane().add(searchButton);
         
-        nextButton = new JButton("Next");
-        nextButton.setBounds(350, 170, 70, 30);
-	getContentPane().add(nextButton);
-        
+        homeButton = new JButton("Home");
+        homeButton.setBounds(350, 170, 70, 30);
+	getContentPane().add(homeButton);
     }
     
     public void setActionSearchButton(ActionListener action){
         searchButton.addActionListener(action);
     }    
-    public void setActionNextButton(ActionListener action){
-        nextButton.addActionListener(action);
+    public void setActionHomeButton(ActionListener action){
+        homeButton.addActionListener(action);
     }
     
     

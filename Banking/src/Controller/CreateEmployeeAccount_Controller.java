@@ -21,7 +21,17 @@ public class CreateEmployeeAccount_Controller {
     public CreateEmployeeAccount_Controller() {
         createEmployeeAccountView = new CreateEmployeeAccount_View();
         createEmployeeAccountView.setVisible(true);
+        createEmployeeAccountView.setActionChangPasswordButton(new CreateEmployeeAccount_Controller.ChangPasswordAction());
         createEmployeeAccountView.setActionHomeButton(new CreateEmployeeAccount_Controller.HomeAction());
+    }
+    
+    private class ChangPasswordAction implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            
+                
+        }
     }
     
     private class HomeAction implements ActionListener{

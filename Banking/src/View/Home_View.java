@@ -22,6 +22,7 @@ public class Home_View extends JFrame {
     private JButton interestButton;
     private JButton stagementPrintOutButton;
     private JButton logoutButton;
+    private JButton employeeAccountButton;
     
     public static void main (String [] args){
         new Home_View();
@@ -35,13 +36,12 @@ public class Home_View extends JFrame {
     private void makeFrame(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(100, 100, 454, 343);
-        setSize(new java.awt.Dimension(700, 700));
+        setSize(new java.awt.Dimension(700, 640));
 	setTitle("Bank Application");
 	getContentPane().setLayout(null);
         setVisible(true);
         
         JFrame background = new JFrame();
-        background = new JFrame();
         Color c = new Color(161,217,195); 
         getContentPane().setBackground(c);
     }
@@ -67,9 +67,15 @@ public class Home_View extends JFrame {
         stagementPrintOutButton.setBounds(350, 200, 350, 200);
 	getContentPane().add(stagementPrintOutButton);
         
+        employeeAccountButton = new JButton("Employee Account");
+        employeeAccountButton.setBounds(350, 400, 350, 100);
+	getContentPane().add(employeeAccountButton);
+        
         logoutButton = new JButton("Log-out");
-        logoutButton.setBounds(350, 400, 350, 200);
+        logoutButton.setBounds(350, 500, 350, 100);
 	getContentPane().add(logoutButton);
+        
+        
     }
     
     public void setActionDepositButton(ActionListener action){
@@ -87,7 +93,11 @@ public class Home_View extends JFrame {
     public void setActionStagementPrintOutButton(ActionListener action){
         stagementPrintOutButton.addActionListener(action);
     }
+    public void setActionEmployeeAccountButton(ActionListener action){
+        employeeAccountButton.addActionListener(action);
+    }
     public void setActionLogOutButton(ActionListener action){
         logoutButton.addActionListener(action);
     }
+    
 }
