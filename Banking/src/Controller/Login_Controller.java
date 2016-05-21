@@ -6,14 +6,16 @@
 package Controller;
 
 import Model.AccessSystem;
+import Model.BankingFactory;
 import Model.DAOEmployeeAccount;
+import Model.MySQLBankingFactory;
 import Model.MySQLDAOEmployeeAccount;
 import View.Home_View;
 import java.awt.event.ActionListener;
-
 import View.Login_View;
 import com.gui.displayApp;
 import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,8 +23,9 @@ import java.awt.event.ActionEvent;
  */
 public class Login_Controller {
     Login_View loginView;
-    
+    AccessSystem access;
     public Login_Controller() {
+        access = new AccessSystem(new MySQLBankingFactory().getDAOEmployee());
         loginView = new Login_View();
         loginView.setVisible(true);
         loginView.setActionLoginButton(new Login_Controller.LoginAction());
@@ -34,10 +37,16 @@ public class Login_Controller {
         public void actionPerformed(ActionEvent event) {
             String username = loginView.getUername();
             String password = loginView.getPassword();
-            
-            if(username.equals("aaa") && password.equals("aaa")){
-                Home_View home = new Home_View();
-                loginView.dispose();
+            if(username.equals("") || password.equals("")){
+                JOptionPane.showMessageDialog(null,"Please fill the remaining spaces!","Message",JOptionPane.INFORMATION_MESSAGE);	
+            }
+            else if(access.login(username, password)){
+                     Home_Controller home = new Home_Controller();
+                     loginView.dispose();
+            }
+            else{
+                loginView.clearUsernamePassword();
+                JOptionPane.showMessageDialog(null,"Password or Username are incorrect!","Message", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }

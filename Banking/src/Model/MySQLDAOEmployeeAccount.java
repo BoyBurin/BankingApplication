@@ -23,11 +23,10 @@ public class MySQLDAOEmployeeAccount implements DAOEmployeeAccount {
     
     @Override
     public EmployeeAccount getOneEmployee(String username){
-        String sql = "SELECT * FROM `BANK_EMPLOYEE` where username = '"+ username+ "'";
+        String sql = "SELECT * FROM `BANK_EMPLOYEE` WHERE username =" +"'"+ username + "'";
         List<EmployeeAccount> all_emp = null;
         EmployeeAccount my_emp = null;
         all_emp = databaseExecute.executeQueryObject(sql, myMapper);
-        my_emp = null;
         if(!all_emp.isEmpty()){
             for(EmployeeAccount emp : all_emp){
                 my_emp = emp;

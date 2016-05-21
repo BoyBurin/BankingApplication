@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -22,6 +23,7 @@ public class Home_View extends JFrame {
     private JButton interestButton;
     private JButton stagementPrintOutButton;
     private JButton logoutButton;
+    private JButton createCustomerButton;
     
     public static void main (String [] args){
         new Home_View();
@@ -34,42 +36,46 @@ public class Home_View extends JFrame {
     
     private void makeFrame(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	setBounds(100, 100, 454, 343);
-        setSize(new java.awt.Dimension(700, 700));
+        setSize(new java.awt.Dimension(700, 800));
 	setTitle("Bank Application");
-	getContentPane().setLayout(null);
+	setLayout(null);
         setVisible(true);
         
-        JFrame background = new JFrame();
-        background = new JFrame();
+        /*JFrame background = new JFrame();
+        background = new JFrame();*/
         Color c = new Color(161,217,195); 
-        getContentPane().setBackground(c);
+        setBackground(c);
     }
     
     private void button(){
         depositButton = new JButton("Deposit");
         depositButton.setBounds(0, 0, 350, 200);
-	getContentPane().add(depositButton);
+	add(depositButton);
         
         withdrawButton = new JButton("Withdraw");
         withdrawButton.setBounds(0, 200, 350, 200);
-	getContentPane().add(withdrawButton);
+	add(withdrawButton);
         
         transferButton = new JButton("Transfer");
         transferButton.setBounds(0, 400, 350, 200);
-	getContentPane().add(transferButton);
+	add(transferButton);
         
         interestButton = new JButton("Interast");
         interestButton.setBounds(350, 0, 350, 200);
-	getContentPane().add(interestButton);
+	add(interestButton);
         
         stagementPrintOutButton = new JButton("Print Stagement");
         stagementPrintOutButton.setBounds(350, 200, 350, 200);
-	getContentPane().add(stagementPrintOutButton);
+	add(stagementPrintOutButton);
+        
+        createCustomerButton = new JButton("Create Customer");
+        createCustomerButton.setBounds(350, 400, 350, 200);
+	add(createCustomerButton);
         
         logoutButton = new JButton("Log-out");
-        logoutButton.setBounds(350, 400, 350, 200);
-	getContentPane().add(logoutButton);
+        logoutButton.setBounds(0, 600, 350, 200);
+	add(logoutButton);
+        setR
     }
     
     public void setActionDepositButton(ActionListener action){

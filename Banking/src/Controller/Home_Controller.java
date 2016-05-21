@@ -21,22 +21,16 @@ import java.awt.event.ActionListener;
  */
 public class Home_Controller {
     Home_View homeView;
-    Deposit_View depositView;
-    Transfer_View transferView;
-    Withdraw_View withdrawView;
-    InterestRate_View interestView;
-    StagementPrint_View stagementPrintView;
     
-
     public Home_Controller() {
         homeView = new Home_View();
         homeView.setVisible(true);
-        homeView.setActionDepositButton(new Home_Controller.depositAction());
-        homeView.setActionWithdrawButton(new Home_Controller.withdrawAction());
-        homeView.setActionTransferButton(new Home_Controller.transferAction());
-        homeView.setActionStagementPrintOutButton(new Home_Controller.stagementPrintOutAction());
-        homeView.setActionLogOutButton(new Home_Controller.logoutAction());
-        homeView.setActionInterestButton(new Home_Controller.interestAction());
+        homeView.setActionDepositButton(new depositAction());
+        homeView.setActionWithdrawButton(new withdrawAction());
+        homeView.setActionTransferButton(new transferAction());
+        homeView.setActionStagementPrintOutButton(new stagementPrintOutAction());
+        homeView.setActionLogOutButton(new logoutAction());
+        homeView.setActionInterestButton(new interestAction());
     }
     
     //Deposit Button
@@ -45,6 +39,7 @@ public class Home_Controller {
         @Override
         public void actionPerformed(ActionEvent event) {
             Deposit_Controller deposit = new Deposit_Controller();
+            homeView.dispose();
             
         }
     }

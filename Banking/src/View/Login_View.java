@@ -75,6 +75,11 @@ public class Login_View extends JFrame
         
         
     }
+    
+    public void clearUsernamePassword(){
+        usernameField.setText("");
+        passwordField.setText("");
+    }
       
     public void button(){
         loginButton = new JButton("login");
