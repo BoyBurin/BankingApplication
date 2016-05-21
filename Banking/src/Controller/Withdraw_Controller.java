@@ -5,10 +5,17 @@
  */
 package Controller;
 
+import Model.CustomerAccount;
+import Model.DAOCustomerAccount;
+import Model.DAOTransaction;
+import Model.MySQLBankingFactory;
+import Model.Name;
+import Model.WithDraw;
 import View.Home_View;
 import View.Withdraw_View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,33 +23,49 @@ import java.awt.event.ActionListener;
  */
 public class Withdraw_Controller {
     Withdraw_View withdrawView;
+    DAOCustomerAccount daoCustomer;
+    DAOTransaction daoTransaction;
+    WithDraw withdraw;
 
     public Withdraw_Controller() {
+        daoCustomer = new MySQLBankingFactory().getDAOCustomer();
+        daoTransaction = new MySQLBankingFactory().getDAOTransaction();
+        withdraw = new WithDraw(daoCustomer, daoTransaction);
         withdrawView = new Withdraw_View();
         withdrawView.setVisible(true);
-        withdrawView.setActionSearchButton(new Withdraw_Controller.SearchAction());
-        withdrawView.setActionSubmitButton(new Withdraw_Controller.submitAction());
-        withdrawView.setActionClearButton(new Withdraw_Controller.clearAction());
-        withdrawView.setActionHomeButton(new Withdraw_Controller.HomeAction());
+        withdrawView.setActionSearchButton(new SearchAction());
+        withdrawView.setActionSubmitButton(new submitAction());
+        withdrawView.setActionClearButton(new clearAction());
+        withdrawView.setActionHomeButton(new HomeAction());
     }
     
     //Search
     private class SearchAction implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent event) {
-            
+            String customerID = withdrawView.getAccountNo();
+            CustomerAccount customer = daoCustomer.getOneCustomer(customerID);
+            Name name = customer.getName();
+            String firstname = name.getName();
+            String surname = name.getSurname();
+            withdrawView.setName(firstname);
+            withdrawView.setSurname(surname);
+            withdrawView.setAmount(0);
         }
     }
     
-    //Submit
     private class submitAction implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent event) {
             String accountNo = withdrawView.getAccountNo();
-            String name = withdrawView.getName();
-            String surname = withdrawView.getSurname();
-            String amount = withdrawView.getAmount();
+            int amount = Integer.parseInt(withdrawView.getAmount());
+            CustomerAccount customer = daoCustomer.getOneCustomer(accountNo);
+            withdraw.withdraw(amount, customer);
+            JOptionPane.showMessageDialog(null,"WidthDraw Successful","Message",JOptionPane.INFORMATION_MESSAGE);
+            Home_Controller home = new Home_Controller();
+            withdrawView.dispose();
+            
         }
     }
     
@@ -50,7 +73,7 @@ public class Withdraw_Controller {
     private class clearAction implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent event) {
-            
+            withdrawView.clearText();
         }
     }
     

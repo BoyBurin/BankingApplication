@@ -19,8 +19,8 @@ import javax.swing.JTextField;
 public class Withdraw_View extends JFrame {
         
     private JTextField accountNoField;
-    private JTextField nameField;
-    private JTextField surnameField;
+    private JLabel nameLabel;
+    private JLabel surnameLabel;
     private JTextField amountField;
     private JButton searchButton;
     private JButton clearButton;
@@ -57,17 +57,19 @@ public class Withdraw_View extends JFrame {
 	nameLable.setBounds(40, 60, 80, 30);
 	getContentPane().add(nameLable);
         
-        nameField = new JTextField("");
-	nameField.setBounds(150, 60, 160, 30);
-	getContentPane().add(nameField);
+        nameLabel = new JLabel("");
+        nameLabel.setForeground(Color.RED);
+	nameLabel.setBounds(150, 60, 160, 30);
+	getContentPane().add(nameLabel);
         
         JLabel surnameLable = new JLabel("Surname :");
 	surnameLable.setBounds(350, 60, 80, 30);
 	getContentPane().add(surnameLable);
         
-        surnameField = new JTextField("");
-	surnameField.setBounds(450, 60, 160, 30);
-	getContentPane().add(surnameField);
+        surnameLabel = new JLabel("");
+        surnameLabel.setForeground(Color.RED);
+	surnameLabel.setBounds(450, 60, 160, 30);
+	getContentPane().add(surnameLabel);
                         
         JLabel amountLable = new JLabel("Amount :");
 	amountLable.setBounds(40, 100, 80, 30);
@@ -108,17 +110,28 @@ public class Withdraw_View extends JFrame {
         String accountNo = accountNoField.getText();
         return accountNo;
     }
+    
+    public void setName(String name){
+        nameLabel.setText(name);
+    }
     public String getName(){
-        String name = nameField.getText();
+        String name = nameLabel.getText();
         return name;
     }
+    public void setSurname(String surname){
+        surnameLabel.setText(surname);
+    }
     public String getSurname(){
-        String surname = surnameField.getText();
+        String surname = surnameLabel.getText();
         return surname;
     }
+    
     public String getAmount(){
         String amount = amountField.getText();
         return amount;
+    }
+    public void setAmount(int amount){
+        amountField.setText(Integer.toString(amount));
     }
     
     public void setActionSearchButton(ActionListener action){
@@ -132,5 +145,12 @@ public class Withdraw_View extends JFrame {
     }
     public void setActionHomeButton(ActionListener action){
         homeButton.addActionListener(action);
+    }
+    
+     public void clearText(){
+        accountNoField.setText("");
+        nameLabel.setText("");
+        surnameLabel.setText("");
+        amountField.setText("");
     }
 }

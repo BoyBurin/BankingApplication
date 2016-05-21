@@ -66,7 +66,7 @@ public class Deposit_Controller {
             int amount = Integer.parseInt(depositView.getAmount());
             CustomerAccount customer = daoCustomer.getOneCustomer(accountNo);
             deposit.deposit(amount, customer);
-            JOptionPane.showMessageDialog(null,"Success","Message",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Deposit Successful","Message",JOptionPane.INFORMATION_MESSAGE);
             Home_Controller home = new Home_Controller();
             depositView.dispose();
             

@@ -5,6 +5,9 @@
  */
 package Model;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 /**
  *
  * @author Burin
@@ -24,9 +27,9 @@ public class WithDraw {
         amount = amount*(-1);
         double balance = myCustomer.getBalance() + amount;
         CustomerAccount updateCustomer = new CustomerAccount(myCustomer, balance);
-        daoCustomer.updateCustomerBalance(myCustomer);
+        daoCustomer.updateCustomerBalance(updateCustomer);
         
-        String date = (new java.sql.Date(System.currentTimeMillis())).toString();
+        String date = new Timestamp((new Date()).getTime()).toString();
         String type = "WITHDRAW";
           EmployeeAccount login = AccessSystem.getLoginAccount();
         String description = login.getBranch();
