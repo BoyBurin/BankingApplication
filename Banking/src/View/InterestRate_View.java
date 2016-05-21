@@ -23,6 +23,12 @@ public class InterestRate_View extends JFrame {
     private JButton clearButton;
     private JButton showButton; 
     private JButton homeButton;
+    private JLabel  lastbalancelabel;
+    private JLabel  interestlabel;
+    private JLabel  presentbalancelabel;
+    private JLabel namelabel;
+    private JLabel middlenamelabel;
+    private JLabel surnamelabel;
         
     
     public InterestRate_View(){
@@ -53,6 +59,11 @@ public class InterestRate_View extends JFrame {
         JLabel lastBalanceLable = new JLabel("LastBalance :");
 	lastBalanceLable.setBounds(40, 60, 100, 30);
 	getContentPane().add(lastBalanceLable);
+        
+        lastbalancelabel = new JLabel("");
+	lastbalancelabel.setBounds(160, 60, 100, 30);
+        lastbalancelabel.setForeground(Color.blue);
+	getContentPane().add(lastbalancelabel);
                 
         JLabel bathLable = new JLabel("Bath");
 	bathLable.setBounds(350, 60, 80, 30);
@@ -62,13 +73,51 @@ public class InterestRate_View extends JFrame {
 	rateLable.setBounds(40, 100, 80, 30);
 	getContentPane().add(rateLable);
         
+        interestlabel = new JLabel("");
+	interestlabel.setBounds(160, 100, 100, 30);
+        interestlabel.setForeground(Color.blue);
+	getContentPane().add(interestlabel);
+        
         JLabel persentLable = new JLabel("% Per year");
 	persentLable.setBounds(350, 100, 80, 30);
 	getContentPane().add(persentLable);
         
         JLabel presentBalanceLable = new JLabel("PresentBalance :");
-	presentBalanceLable.setBounds(40, 140, 80, 30);
+	presentBalanceLable.setBounds(40, 140, 120, 30);
 	getContentPane().add(presentBalanceLable);
+        
+        presentbalancelabel = new JLabel("");
+	presentbalancelabel.setBounds(160, 140, 100, 30);
+        presentbalancelabel.setForeground(Color.blue);
+	getContentPane().add(presentbalancelabel);
+        
+        JLabel nameLable = new JLabel("Name :");
+	nameLable.setBounds(40, 180, 80, 30);
+	getContentPane().add(nameLable);
+        
+        namelabel = new JLabel("");
+	namelabel.setBounds(160, 180, 100, 30);
+        namelabel.setForeground(Color.red);
+	getContentPane().add(namelabel);
+        
+        JLabel usernameLable = new JLabel("Middlename :");
+	usernameLable.setBounds(40,220, 80, 30);
+	getContentPane().add(usernameLable);
+        
+        middlenamelabel = new JLabel("");
+	middlenamelabel.setBounds(160, 220, 160, 30);
+        middlenamelabel.setForeground(Color.red);
+	getContentPane().add(middlenamelabel);
+        
+        JLabel passwordLable = new JLabel("Surname :");
+	passwordLable.setBounds(40, 260, 80, 30);
+	getContentPane().add(passwordLable);
+        
+        surnamelabel = new JLabel("");
+	surnamelabel.setBounds(160, 260, 160, 30);
+        surnamelabel.setForeground(Color.red);
+	getContentPane().add(surnamelabel);
+        
                 
         JLabel yearLable = new JLabel("Bath");
 	yearLable.setBounds(350, 140, 80, 30);
@@ -85,18 +134,43 @@ public class InterestRate_View extends JFrame {
 	getContentPane().add(searchButton);
         
         showButton = new JButton("Show");
-        showButton.setBounds(200, 200, 100, 30);
+        showButton.setBounds(200, 320, 100, 30);
 	getContentPane().add(showButton);
+        showButton.setVisible(false);
         
         homeButton = new JButton("Home");
-        homeButton.setBounds(400, 200, 100, 30);
+        homeButton.setBounds(400, 320, 100, 30);
 	getContentPane().add(homeButton);
         
+    }
+    
+     public void setName(String name){
+        namelabel.setText(name);
+    }
+     
+     public void setSurname(String surname){
+        surnamelabel.setText(surname);
+    }
+     
+      public void setMiddleName(String middlename){
+        middlenamelabel.setText(middlename);
     }
     
     public String getAccountNo(){
         String accountNo = accountNoField.getText();
         return accountNo;
+    }
+    
+    public void setLastBalance(double lastbalance){
+        lastbalancelabel.setText(Double.toString(lastbalance));
+    }
+    
+    public void setPresentBalance(double presentbalance){
+        presentbalancelabel.setText(Double.toString(presentbalance));
+    }
+    
+    public void setInterest(double interest){
+        interestlabel.setText(Double.toString(interest));
     }
     
     public void setActionSearchButton(ActionListener action){
@@ -107,5 +181,22 @@ public class InterestRate_View extends JFrame {
     }
     public void setActionHomeButton(ActionListener action){
         homeButton.addActionListener(action);
+    }
+    
+    public void setVisibleShowButton(boolean visible){
+        showButton.setVisible(visible);
+    }
+    
+    public void setTextfieldID(boolean visible){
+        accountNoField.setEnabled(visible);
+    }
+    
+    public void clearText(){
+        lastbalancelabel.setText("");
+        presentbalancelabel.setText("");
+        interestlabel.setText("");
+        namelabel.setText("");
+        middlenamelabel.setText("");
+        surnamelabel.setText("");
     }
 }
