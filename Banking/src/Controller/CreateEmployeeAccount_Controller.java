@@ -40,6 +40,7 @@ public class CreateEmployeeAccount_Controller {
         Name name = employee.getName();
         String firstname = name.getName();
         String middlename = name.getMiddleName();
+        if(middlename.equals("")) middlename = "-";
         String surname = name.getSurname();
         createEmployeeAccountView.setIDLebel(employee.getEmployeeID());
         createEmployeeAccountView.setnameLebel(firstname);

@@ -48,23 +48,23 @@ public class Transaction {
     }
     
     public String getCustomerID(){
-        String myID = makeIDPattern(this.customerID);
+        String myID = makeIDPattern(this.customerID, "c");
         return myID;
     }
     
     public String getEmployeeID(){
-        String myID = makeIDPattern(this.customerID);
+        String myID = makeIDPattern(this.employeeID, "e");
         return myID;
     }
     
-    private String makeIDPattern(int id){
+    private String makeIDPattern(int id, String type){
         String myID = Integer.toString(id);
         int currentID_length = myID.length();
-        int remainIDPattern = 10 - currentID_length;
+        int remainIDPattern = 9 - currentID_length;
         for(int start = 1 ; start <= remainIDPattern ; start++){
             myID = 0 + myID;
         }
-        return myID;
+        return type +myID;
     }
     
     public String getDate(){

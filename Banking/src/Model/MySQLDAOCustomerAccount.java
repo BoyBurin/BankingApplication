@@ -63,7 +63,7 @@ public class MySQLDAOCustomerAccount implements DAOCustomerAccount{
 
     @Override
     public CustomerAccount getOneCustomer(String id) {
-        String sql = "SELECT * FROM `BANK_CUSTOMER`, BANK_ADDRESS WHERE BANK_CUSTOMER.id = BANK_ADDRESS.customer_id AND BANK_CUSTOMER.id = '"+ Integer.parseInt(id)+ "'";
+        String sql = "SELECT * FROM `BANK_CUSTOMER`, BANK_ADDRESS WHERE BANK_CUSTOMER.id = BANK_ADDRESS.customer_id AND BANK_CUSTOMER.id = '"+ Integer.parseInt(id.substring(1))+ "'";
         List<CustomerAccount> all_emp = null;
         CustomerAccount my_emp = null;
         all_emp = databaseExecute.executeQueryObject(sql, myMapper);
@@ -78,7 +78,7 @@ public class MySQLDAOCustomerAccount implements DAOCustomerAccount{
 
     @Override
     public void updateCustomerBalance(CustomerAccount updateBalance) {
-        String sql = "UPDATE BANK_CUSTOMER SET balance = '" + updateBalance.getBalance()+ "' WHERE id = ('" + Integer.parseInt(updateBalance.getID())+ "')";
+        String sql = "UPDATE BANK_CUSTOMER SET balance = '" + updateBalance.getBalance()+ "' WHERE id = ('" + Integer.parseInt(updateBalance.getID().substring(1))+ "')";
         databaseExecute.excuteQuery(sql);
     }
 
@@ -103,7 +103,7 @@ public class MySQLDAOCustomerAccount implements DAOCustomerAccount{
         newCustomer  = getCustomerID(newCustomer);
         sql = "INSERT INTO "
                 + "BANK_ADDRESS(customer_id, address_one,address_two,province,postcode)"
-                + "VALUES ('" + Integer.parseInt(newCustomer.getID()) + "','"+ address1 + "','" + address2 + "','" + province + "','" + postcode
+                + "VALUES ('" + Integer.parseInt(newCustomer.getID().substring(1)) + "','"+ address1 + "','" + address2 + "','" + province + "','" + postcode
                 + "')";
         databaseExecute.excuteQuery(sql);
     }

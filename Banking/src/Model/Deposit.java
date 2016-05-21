@@ -23,7 +23,7 @@ public class Deposit {
     }
     
     public void deposit(int amount, CustomerAccount myCustomer){
-        int id = Integer.parseInt(myCustomer.getID());
+        int id = Integer.parseInt(myCustomer.getID().substring(1));
         double balance = myCustomer.getBalance() + amount;
         CustomerAccount updateCustomer = new CustomerAccount(myCustomer, balance);
         daoCustomer.updateCustomerBalance(updateCustomer);
@@ -31,7 +31,7 @@ public class Deposit {
         String type = "DEPOSIT";
         EmployeeAccount login = AccessSystem.getLoginAccount();
         String description = login.getBranch();
-        int employeeID= Integer.parseInt(login.getEmployeeID());
+        int employeeID= Integer.parseInt(login.getEmployeeID().substring(1));
         Transaction myTrans = new Transaction(date, type, description, balance, amount, id, employeeID);
         daoTransaction.addNewTransaction(myTrans);
     }

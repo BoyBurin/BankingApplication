@@ -23,7 +23,7 @@ public class WithDraw {
     }
     
     public void withdraw(int amount, CustomerAccount myCustomer){
-        int id = Integer.parseInt(myCustomer.getID());
+        int id = Integer.parseInt(myCustomer.getID().substring(1));
         amount = amount*(-1);
         double balance = myCustomer.getBalance() + amount;
         CustomerAccount updateCustomer = new CustomerAccount(myCustomer, balance);
@@ -33,7 +33,7 @@ public class WithDraw {
         String type = "WITHDRAW";
           EmployeeAccount login = AccessSystem.getLoginAccount();
         String description = login.getBranch();
-        int employeeID= Integer.parseInt(login.getEmployeeID());
+        int employeeID= Integer.parseInt(login.getEmployeeID().substring(1));
         Transaction myTrans = new Transaction(date, type, description, balance, amount, id, employeeID);
         daoTransaction.addNewTransaction(myTrans);
     }

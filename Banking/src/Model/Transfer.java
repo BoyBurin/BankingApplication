@@ -5,6 +5,9 @@
  */
 package Model;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 /**
  *
  * @author Burin
@@ -27,20 +30,20 @@ public class Transfer {
     }
     
     private void updateCustomer(CustomerAccount customer, double amount){
-        int id = Integer.parseInt(customer.getID());
+        int id = Integer.parseInt(customer.getID().substring(1));
         double balance = customer.getBalance() + amount;
         CustomerAccount updateCustomer = new CustomerAccount(customer, balance);
         daoCustomer.updateCustomerBalance(updateCustomer);
     }
     
     private void addTransaction(CustomerAccount customer, double amount){
-        int id = Integer.parseInt(customer.getID());
+        int id = Integer.parseInt(customer.getID().substring(1));
         double balance = customer.getBalance() + amount;
-        String date = (new java.sql.Date(System.currentTimeMillis())).toString();
+        String date = new Timestamp((new Date()).getTime()).toString();
         String type = "TRANSFER";
         EmployeeAccount login = AccessSystem.getLoginAccount();
         String description = login.getBranch();
-        int employeeID= Integer.parseInt(login.getEmployeeID());
+        int employeeID= Integer.parseInt(login.getEmployeeID().substring(1));
         Transaction myTrans = new Transaction(date, type, description, balance, amount, id, employeeID);
         daoTransaction.addNewTransaction(myTrans);
     }

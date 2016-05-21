@@ -40,7 +40,7 @@ public class CustomerAccount {
     }
     
     private void copyObject(CustomerAccount target){
-        this.id = Integer.parseInt(target.getID());
+        this.id = Integer.parseInt(target.getID().substring(1));
         this.name = target.getName();
         this.balance = target.getBalance();
         this.date = target.getDate();
@@ -56,11 +56,11 @@ public class CustomerAccount {
     private String makeIDPattern(){
         String myID = Integer.toString(id);
         int currentID_length = myID.length();
-        int remainIDPattern = 10 - currentID_length;
+        int remainIDPattern = 9 - currentID_length;
         for(int start = 1 ; start <= remainIDPattern ; start++){
             myID = 0 + myID;
         }
-        return myID;
+        return "c"+ myID;
     }
     
     public Name getName(){

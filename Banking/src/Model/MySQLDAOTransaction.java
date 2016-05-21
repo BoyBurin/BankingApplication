@@ -23,8 +23,8 @@ public class MySQLDAOTransaction implements DAOTransaction{
 
     @Override
     public void addNewTransaction(Transaction myTrans) {
-        int customerID = Integer.parseInt(myTrans.getCustomerID());
-        int employeeID = Integer.parseInt(AccessSystem.getLoginAccount().getEmployeeID());
+        int customerID = Integer.parseInt(myTrans.getCustomerID().substring(1));
+        int employeeID = Integer.parseInt(AccessSystem.getLoginAccount().getEmployeeID().substring(1));
         String date = myTrans.getDate();
         String type = myTrans.getType();
         String description = myTrans.getDescription();
@@ -40,7 +40,7 @@ public class MySQLDAOTransaction implements DAOTransaction{
 
     @Override
     public List<Transaction> getTransactionListbyID(String id) {
-         String sql = "SELECT * FROM `BANK_TRANSACTION` where customer_id = '" + Integer.parseInt(id) + "'";
+         String sql = "SELECT * FROM `BANK_TRANSACTION` where customer_id = '" + Integer.parseInt(id.substring(1)) + "'" + "ORDER BY Date DESC";
          List<Transaction> all_emp = databaseExecute.executeQueryObject(sql, myMapper);    
          return all_emp;
     }
