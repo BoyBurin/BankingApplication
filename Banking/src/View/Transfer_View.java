@@ -46,6 +46,7 @@ public class Transfer_View extends JFrame {
         setSize(new java.awt.Dimension(700, 700));
 	setTitle("Transfer");
 	getContentPane().setLayout(null);
+        
     }
     
     private void inComponent(){

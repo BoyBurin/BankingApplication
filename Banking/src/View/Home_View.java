@@ -39,6 +39,8 @@ public class Home_View extends JFrame {
         setSize(new java.awt.Dimension(700, 640));
 	setTitle("Bank Application");
 	getContentPane().setLayout(null);
+        setLocationRelativeTo(null);
+        setResizable(false);
         setVisible(true);
         
         JFrame background = new JFrame();

@@ -45,6 +45,8 @@ public class CreateAccount_View extends JFrame {
         setSize(new java.awt.Dimension(700, 700));
 	setTitle("Create Account");
 	getContentPane().setLayout(null);
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
     
     private void inComponent(){

@@ -37,6 +37,8 @@ public class CreateEmployeeAccount_View extends JFrame {
         setSize(new java.awt.Dimension(700, 500));
 	setTitle("Employee Account");
 	getContentPane().setLayout(null);
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
     
     public void inComponent(){

@@ -43,6 +43,8 @@ public class Withdraw_View extends JFrame {
         setSize(new java.awt.Dimension(700, 700));
 	setTitle("Withdraw");
 	getContentPane().setLayout(null);
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
     
     private void inComponent(){

@@ -43,6 +43,8 @@ public class Deposit_View extends JFrame {
         setSize(new java.awt.Dimension(700, 700));
 	setTitle("Deposit");
 	getContentPane().setLayout(null);
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
     
     private void inComponent(){

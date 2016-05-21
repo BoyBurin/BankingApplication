@@ -41,6 +41,8 @@ public class Login_View extends JFrame
         setSize(new java.awt.Dimension(244, 349));
 	setTitle("Log in");
 	getContentPane().setLayout(null);
+        setLocationRelativeTo(null);
+        setResizable(false);
         setVisible(true);
     }
     

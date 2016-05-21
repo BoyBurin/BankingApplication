@@ -39,6 +39,8 @@ public class StagementPrint_View extends JFrame {
         setSize(new java.awt.Dimension(700, 700));
 	setTitle("Print stagement");
 	getContentPane().setLayout(null);
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
     
     private void inComponent(){
