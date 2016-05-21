@@ -63,7 +63,7 @@ public class MySQLDAOCustomerAccount implements DAOCustomerAccount{
 
     @Override
     public CustomerAccount getOneCustomer(String id) {
-        String sql = "SELECT * FROM `BANK_CUSTOMER`, BANK_ADDRESS WHERE BANK_CUSTOMER.id = BANK_ADDRESS.customer_id AND BANKING_CUSTOMER.id = '"+ Integer.parseInt(id)+ "'";
+        String sql = "SELECT * FROM `BANK_CUSTOMER`, BANK_ADDRESS WHERE BANK_CUSTOMER.id = BANK_ADDRESS.customer_id AND BANK_CUSTOMER.id = '"+ Integer.parseInt(id)+ "'";
         List<CustomerAccount> all_emp = null;
         CustomerAccount my_emp = null;
         all_emp = databaseExecute.executeQueryObject(sql, myMapper);

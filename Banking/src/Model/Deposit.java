@@ -5,6 +5,9 @@
  */
 package Model;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 /**
  *
  * @author Burin
@@ -23,8 +26,8 @@ public class Deposit {
         int id = Integer.parseInt(myCustomer.getID());
         double balance = myCustomer.getBalance() + amount;
         CustomerAccount updateCustomer = new CustomerAccount(myCustomer, balance);
-        daoCustomer.updateCustomerBalance(myCustomer);
-        String date = (new java.sql.Date(System.currentTimeMillis())).toString();
+        daoCustomer.updateCustomerBalance(updateCustomer);
+        String date = new Timestamp((new Date()).getTime()).toString();
         String type = "DEPOSIT";
         EmployeeAccount login = AccessSystem.getLoginAccount();
         String description = login.getBranch();

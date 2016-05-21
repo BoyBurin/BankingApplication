@@ -41,7 +41,6 @@ public class CreateEmployeeAccount_Controller {
         String firstname = name.getName();
         String middlename = name.getMiddleName();
         String surname = name.getSurname();
-        System.out.println(name);
         createEmployeeAccountView.setIDLebel(employee.getEmployeeID());
         createEmployeeAccountView.setnameLebel(firstname);
         createEmployeeAccountView.setMiddlenameLebel(middlename);

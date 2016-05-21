@@ -52,6 +52,7 @@ public class CreateEmployeeAccount_View extends JFrame {
 	getContentPane().add(employeeNoLable);
         employeeID = new JLabel();
         employeeID.setBounds(140, 40, 100, 30);
+        employeeID.setForeground(Color.red);
         getContentPane().add(employeeID);
                       
         JLabel nameLable = new JLabel("Name :");
@@ -59,6 +60,7 @@ public class CreateEmployeeAccount_View extends JFrame {
 	getContentPane().add(nameLable);
         nameLabel = new JLabel();
         nameLabel.setBounds(140, 80, 80, 30);
+        nameLabel.setForeground(Color.red);
         getContentPane().add(nameLabel);
         
         JLabel middleNameLable = new JLabel("Middle Name :");
@@ -66,6 +68,7 @@ public class CreateEmployeeAccount_View extends JFrame {
 	getContentPane().add(middleNameLable);
         middlenameLabel = new JLabel("");
         middlenameLabel.setBounds(140, 120, 80, 30);
+        middlenameLabel.setForeground(Color.red);
         getContentPane().add(middlenameLabel);
         
         JLabel surnameLable = new JLabel("Surname :");
@@ -73,6 +76,7 @@ public class CreateEmployeeAccount_View extends JFrame {
 	getContentPane().add(surnameLable);
         surnameLabel = new JLabel("");
         surnameLabel.setBounds(140, 160, 80, 30);
+        surnameLabel.setForeground(Color.red);
         getContentPane().add(surnameLabel);
         
         JLabel usernameLable = new JLabel("Username :");
@@ -80,6 +84,7 @@ public class CreateEmployeeAccount_View extends JFrame {
 	getContentPane().add(usernameLable);
         usernameLabel = new JLabel("");
         usernameLabel.setBounds(140, 200, 80, 30);
+        usernameLabel.setForeground(Color.red);
         getContentPane().add(usernameLabel);
         
         
