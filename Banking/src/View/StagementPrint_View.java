@@ -9,6 +9,7 @@ import Model.Transaction;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -49,6 +50,7 @@ public class StagementPrint_View extends JFrame {
     }
     
     private void inComponent(){
+        
         JLabel accountIDLable = new JLabel("Account No.:");
 	accountIDLable.setBounds(100, 20, 80, 30);
 	getContentPane().add(accountIDLable);

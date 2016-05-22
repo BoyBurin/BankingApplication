@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import Model.AccessSystem;
+import Model.MySQLBankingFactory;
 import View.Deposit_View;
 import View.Home_View;
 import View.InterestRate_View;
@@ -14,6 +16,7 @@ import View.Transfer_View;
 import View.Withdraw_View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -99,8 +102,18 @@ public class Home_Controller {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            Login_Controller login = new Login_Controller();
-            homeView.dispose();
+            AccessSystem access = new AccessSystem(new MySQLBankingFactory().getDAOEmployee());
+            int logout = JOptionPane.showConfirmDialog(null,"Are you sure","Message",JOptionPane.YES_NO_OPTION);
+            if(logout == JOptionPane.YES_OPTION){
+                if(access.logOut()){
+                    Login_Controller login = new Login_Controller();
+                    homeView.dispose();
+                    JOptionPane.showMessageDialog(null,"Logout Successful","Message",JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"Logout Fail","Message",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
         }
     }
     

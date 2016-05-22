@@ -7,6 +7,7 @@ package Controller;
 
 import Model.AccessSystem;
 import Model.BankingFactory;
+import Model.CheckPattern;
 import Model.DAOEmployeeAccount;
 import Model.MySQLBankingFactory;
 import Model.MySQLDAOEmployeeAccount;

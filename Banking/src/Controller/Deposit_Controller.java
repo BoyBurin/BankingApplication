@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.CheckPattern;
 import Model.CustomerAccount;
 import Model.DAOCustomerAccount;
 import Model.DAOTransaction;
@@ -47,8 +48,20 @@ public class Deposit_Controller {
     private class SearchAction implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent event) {
-            String customerID = depositView.getAccountNo();
+            String customerID = depositView.getAccountNo().trim();
+            if(customerID.equals("")){
+                JOptionPane.showMessageDialog(null,"Please input Customer ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(!CheckPattern.checkCustomerIDPattern(customerID)){
+                JOptionPane.showMessageDialog(null,"Customer ID not match!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             CustomerAccount customer = daoCustomer.getOneCustomer(customerID);
+            if(customer == null){
+                 JOptionPane.showMessageDialog(null,"Not Found Customer ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             Name name = customer.getName();
             String firstname = name.getName();
             String surname = name.getSurname();
@@ -62,10 +75,34 @@ public class Deposit_Controller {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            String accountNo = depositView.getAccountNo();
-            int amount = Integer.parseInt(depositView.getAmount());
+            String accountNo = depositView.getAccountNo().trim();
+            if(accountNo.equals("")){
+                JOptionPane.showMessageDialog(null,"Please input Customer ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(!CheckPattern.checkCustomerIDPattern(accountNo)){
+                JOptionPane.showMessageDialog(null,"Customer ID not match!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            String amount = depositView.getAmount();
+            if(amount.equals("")){
+                JOptionPane.showMessageDialog(null,"Please input Amount","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(CheckPattern.checkDoublePattern(amount)){
+                JOptionPane.showMessageDialog(null,"Please input Integer","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(Double.parseDouble(amount) <= 0){
+                JOptionPane.showMessageDialog(null,"Please input Positive number in Amount field","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(Integer.parseInt(amount) > 300000){
+                JOptionPane.showMessageDialog(null,"Please input less than 300,000 baht","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             CustomerAccount customer = daoCustomer.getOneCustomer(accountNo);
-            deposit.deposit(amount, customer);
+            deposit.deposit(Integer.parseInt(amount), customer);
             JOptionPane.showMessageDialog(null,"Deposit Successful","Message",JOptionPane.INFORMATION_MESSAGE);
             Home_Controller home = new Home_Controller();
             depositView.dispose();

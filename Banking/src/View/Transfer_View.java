@@ -7,6 +7,7 @@ package View;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -50,6 +51,11 @@ public class Transfer_View extends JFrame {
     }
     
     private void inComponent(){
+        JLabel imageLabel = new JLabel();
+        imageLabel.setBounds(0, 0, 700, 1100);
+        imageLabel.setIcon(new ImageIcon("picture/icon.png")); 
+        getContentPane().add(imageLabel);
+        
         JLabel accountNoLable = new JLabel("Account No. :");
 	accountNoLable.setBounds(40, 20, 100, 30);
 	getContentPane().add(accountNoLable);

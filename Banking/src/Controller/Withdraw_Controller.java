@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.CheckPattern;
 import Model.CustomerAccount;
 import Model.DAOCustomerAccount;
 import Model.DAOTransaction;
@@ -43,8 +44,20 @@ public class Withdraw_Controller {
     private class SearchAction implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent event) {
-            String customerID = withdrawView.getAccountNo();
+            String customerID = withdrawView.getAccountNo().trim();
+            if(customerID.equals("")){
+                JOptionPane.showMessageDialog(null,"Please input Customer ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(!CheckPattern.checkCustomerIDPattern(customerID)){
+                JOptionPane.showMessageDialog(null,"Customer ID not match!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             CustomerAccount customer = daoCustomer.getOneCustomer(customerID);
+            if(customer == null){
+                 JOptionPane.showMessageDialog(null,"Not Found Customer ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             Name name = customer.getName();
             String firstname = name.getName();
             String surname = name.getSurname();
@@ -59,9 +72,33 @@ public class Withdraw_Controller {
         @Override
         public void actionPerformed(ActionEvent event) {
             String accountNo = withdrawView.getAccountNo();
-            int amount = Integer.parseInt(withdrawView.getAmount());
+            if(accountNo.equals("")){
+                JOptionPane.showMessageDialog(null,"Please input Customer ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(!CheckPattern.checkCustomerIDPattern(accountNo)){
+                JOptionPane.showMessageDialog(null,"Customer ID not match!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            String amount = withdrawView.getAmount();
+            if(amount.equals("")){
+                JOptionPane.showMessageDialog(null,"Please input Amount","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(CheckPattern.checkDoublePattern(amount)){
+                JOptionPane.showMessageDialog(null,"Please input Again","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(Double.parseDouble(amount) <= 0){
+                JOptionPane.showMessageDialog(null,"Please input Positive number in Amount field","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             CustomerAccount customer = daoCustomer.getOneCustomer(accountNo);
-            withdraw.withdraw(amount, customer);
+            if(customer.getBalance() - Integer.parseInt(amount) < 0){
+                JOptionPane.showMessageDialog(null,"Your balance not enough for withdraw","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            withdraw.withdraw(Integer.parseInt(amount), customer);
             JOptionPane.showMessageDialog(null,"WidthDraw Successful","Message",JOptionPane.INFORMATION_MESSAGE);
             Home_Controller home = new Home_Controller();
             withdrawView.dispose();

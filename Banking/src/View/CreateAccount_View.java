@@ -47,6 +47,7 @@ public class CreateAccount_View extends JFrame {
     }
     
     private void inComponent(){
+        
         JLabel nameLable = new JLabel("Name :");
 	nameLable.setBounds(40, 40, 80, 30);
 	getContentPane().add(nameLable);
@@ -175,9 +176,8 @@ public class CreateAccount_View extends JFrame {
         clearButton.addActionListener(listener);
     }
     
-    public Double getBalance(){
-        Double balance = Double.parseDouble(balanceField.getText());
-        return balance;
+    public String getBalance(){
+        return balanceField.getText();
     }
     
     public String getName(){

@@ -7,6 +7,7 @@ package View;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -47,6 +48,11 @@ public class CreateEmployeeAccount_View extends JFrame {
     }
     
     public void inComponent(){
+        JLabel imageLabel = new JLabel();
+        imageLabel.setBounds(0, 0, 700, 750);
+        imageLabel.setIcon(new ImageIcon("picture/icon.png")); 
+        getContentPane().add(imageLabel);
+        
         JLabel employeeNoLable = new JLabel("Employee No. :");
 	employeeNoLable.setBounds(40, 40, 100, 30);
 	getContentPane().add(employeeNoLable);
@@ -96,10 +102,11 @@ public class CreateEmployeeAccount_View extends JFrame {
     public void Button(){
         changPasswordButton = new JButton("chang Password");
         changPasswordButton.setBounds(150, 350, 150, 30);
+        changPasswordButton.setVisible(false);
 	getContentPane().add(changPasswordButton);
         
         homeButton = new JButton("Home");
-        homeButton.setBounds(400, 350, 100, 30);
+        homeButton.setBounds(300, 250, 100, 30);
 	getContentPane().add(homeButton);
     }
     

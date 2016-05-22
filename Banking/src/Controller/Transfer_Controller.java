@@ -6,6 +6,7 @@
 package Controller;
 
 
+import Model.CheckPattern;
 import Model.CustomerAccount;
 import Model.DAOCustomerAccount;
 import Model.DAOTransaction;
@@ -45,8 +46,24 @@ public class Transfer_Controller {
     private class SearchAction implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent event) {
-            String customerID = transferView.getAccountNo();
+            String customerID = transferView.getAccountNo().trim();
+            if(customerID.equals("")){
+                JOptionPane.showMessageDialog(null,"Please input Customer1 ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(customerID.equals(transferView.getToAccountNo().trim())){
+                JOptionPane.showMessageDialog(null,"Can not process!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(!CheckPattern.checkCustomerIDPattern(customerID)){
+                JOptionPane.showMessageDialog(null,"Customer1 ID not match!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             CustomerAccount customer = daoCustomer.getOneCustomer(customerID);
+            if(customer == null){
+                 JOptionPane.showMessageDialog(null,"Not Found Customer1 ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             Name name = customer.getName();
             String firstname = name.getName();
             String surname = name.getSurname();
@@ -59,8 +76,24 @@ public class Transfer_Controller {
     private class SearchTargetAction implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent event) {
-            String customerID = transferView.getToAccountNo();
+            String customerID = transferView.getToAccountNo().trim();
+            if(customerID.equals("")){
+                JOptionPane.showMessageDialog(null,"Please input Customer2 ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(customerID.equals(transferView.getAccountNo().trim())){
+                JOptionPane.showMessageDialog(null,"Can not process!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(!CheckPattern.checkCustomerIDPattern(customerID)){
+                JOptionPane.showMessageDialog(null,"Customer2 ID not match!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             CustomerAccount customer = daoCustomer.getOneCustomer(customerID);
+            if(customer == null){
+                 JOptionPane.showMessageDialog(null,"Not Found Customer2 ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             Name name = customer.getName();
             String firstname = name.getName();
             String surname = name.getSurname();
@@ -74,12 +107,60 @@ public class Transfer_Controller {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            String customerID = transferView.getAccountNo();
-            String targetID = transferView.getToAccountNo();
-            int amount = Integer.parseInt(transferView.getAmount());
+            String customerID = transferView.getAccountNo().trim();
+            String targetID = transferView.getToAccountNo().trim();
+            if(customerID.equals("")){
+                JOptionPane.showMessageDialog(null,"Please input Customer1 ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(customerID.equals(transferView.getToAccountNo().trim())){
+                JOptionPane.showMessageDialog(null,"Can not process!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(!CheckPattern.checkCustomerIDPattern(customerID)){
+                JOptionPane.showMessageDialog(null,"Customer1 ID not match!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(targetID.equals("")){
+                JOptionPane.showMessageDialog(null,"Please input Customer2 ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(targetID.equals(transferView.getAccountNo().trim())){
+                JOptionPane.showMessageDialog(null,"Can not process!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(!CheckPattern.checkCustomerIDPattern(targetID)){
+                JOptionPane.showMessageDialog(null,"Customer2 ID not match!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            String amount = transferView.getAmount();
+            if(amount.equals("")){
+                JOptionPane.showMessageDialog(null,"Please input Amount","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(CheckPattern.checkDoublePattern(amount)){
+                JOptionPane.showMessageDialog(null,"Please input Integer","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(Double.parseDouble(amount) <= 0){
+                JOptionPane.showMessageDialog(null,"Please input Positive number in Amount field","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(Integer.parseInt(amount) > 300000){
+                JOptionPane.showMessageDialog(null,"Please input less than 300,000 baht","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             CustomerAccount customer = daoCustomer.getOneCustomer(customerID);
             CustomerAccount target = daoCustomer.getOneCustomer(targetID);
-            transfer.transfer(customer, target, amount);
+            if(customer == null){
+                 JOptionPane.showMessageDialog(null,"Not Found Customer1 ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(target == null){
+                 JOptionPane.showMessageDialog(null,"Not Found Customer2 ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            transfer.transfer(customer, target, Integer.parseInt(amount));
             JOptionPane.showMessageDialog(null,"Transfer Successful","Message",JOptionPane.INFORMATION_MESSAGE);
             Home_Controller home = new Home_Controller();
             transferView.dispose();

@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.CheckPattern;
 import Model.CustomerAccount;
 import Model.DAOCustomerAccount;
 import Model.DAOTransaction;
@@ -40,7 +41,15 @@ public class StagementPrint_Controller {
     private class SearchAction implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent event) {
-            String customerID = stagementPrintView.getAccountNoField();
+            String customerID = stagementPrintView.getAccountNoField().trim();
+            if(customerID.equals("")){
+                JOptionPane.showMessageDialog(null,"Please input Customer ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(!CheckPattern.checkCustomerIDPattern(customerID)){
+                JOptionPane.showMessageDialog(null,"Customer ID not match!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             CustomerAccount customer = daoCustomer.getOneCustomer(customerID);
             if(customer != null){
                 List<Transaction> transactionlist = daoTransaction.getTransactionListbyID(customerID);

@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.CheckPattern;
 import Model.CustomerAccount;
 import Model.DAOCustomerAccount;
 import Model.DAOTransaction;
@@ -42,7 +43,7 @@ public class InterestRate_Controller {
     private class ShowAction implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent event) {
-            String customerID = interestView.getAccountNo();
+            String customerID = interestView.getAccountNo().trim();
             CustomerAccount customer = daoCustomer.getOneCustomer(customerID);
             Name name = customer.getName();
             String firstname = name.getName();
@@ -62,7 +63,15 @@ public class InterestRate_Controller {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-           String customerID = interestView.getAccountNo();
+           String customerID = interestView.getAccountNo().trim();
+           if(customerID.equals("")){
+                JOptionPane.showMessageDialog(null,"Please input Customer ID","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(!CheckPattern.checkCustomerIDPattern(customerID)){
+                JOptionPane.showMessageDialog(null,"Customer ID not match!","Message",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
            CustomerAccount customer = daoCustomer.getOneCustomer(customerID);
            if(customer != null){
                JOptionPane.showMessageDialog(null,"Found Customer ID","Message",JOptionPane.INFORMATION_MESSAGE);
